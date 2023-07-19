@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -44,5 +45,12 @@ class ProductsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    
+    public function getProduct(Request $request){
+        if(Products::where('productName',$request->input("productName"))->exists()){
+            $product=Products::where('productName',$request->input("productName"))->get();
+            return response()->json($product);
+        }
     }
 }

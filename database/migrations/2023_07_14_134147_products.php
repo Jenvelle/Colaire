@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('stocksAvailable');
             $table->string('productPhoto');
+            $table->enum('tag',['sale','new','outOfStock','none'])->default('new');
+            $table->float('discount')->default(0);
             $table->integer('stocksPurchased')->default(0);
             $table->timestamps();
         });
