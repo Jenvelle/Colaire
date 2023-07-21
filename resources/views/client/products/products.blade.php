@@ -7,6 +7,10 @@
                     <img src="{{asset($product->productPhoto)}}" alt="keqing" class="product-img hover" width="300">
                     @if($product->tag=='sale')
                     <p class="showcase-badge angle black">sale</p>
+                    @elseif($product->tag=='outOfStock')
+                    <p class="showcase-badge angle red">N/A</p>
+                    @elseif($product->tag=='new')
+                    <p class="showcase-badge angle pink">New</p>
                     @endif
                     <div class="showcase-actions">
                       <button class="btn-action">
@@ -28,7 +32,7 @@
                   </div>
 
                   <div class="showcase-content">
-                    <a href="#" class="showcase-category">Liyue</a>
+                    <a href="#" class="showcase-category">{{$product->category}}</a>
 
                     <h3>
                       <a href="#" class="showcase-title">{{$product->productName}}</a>
@@ -43,13 +47,13 @@
                     </div>
 
                     <div class="price-box">
-                        @php
-                        $computedPrice=$product->price * (1-$product->discount);
-                        @endphp
-                        <p class="price">${{number_format($computedPrice, 2, '.', ',')}}</p>    
-                        @if($product->tag=='sale')
-                        <del>${{number_format($product->price, 2, '.', ',')}}</del>
+                        @if ($product->tag=='sale')
+                        <del>${{number_format($product->price,2,'.',',')}}</del>
                         @endif
+                        @php
+                        $computedPrice=$product->price*(1-$product->discount);
+                        @endphp
+                        <p class="price">${{number_format($computedPrice,2,'.',',')}}</p>
                        
                     </div>
                   </div>

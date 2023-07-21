@@ -15,6 +15,8 @@
   --cultured: hsl(0, 0%, 93%);
   --white: hsl(0, 100%, 100%);
   --onyx: hsl(0, 0%, 27%);
+  --ferrari-red: #EC1313;
+
 
   /**
    * typography
@@ -1732,6 +1734,8 @@ a {
 .product-grid .showcase-badge.black { background: var(--eerie-black); }
 
 .product-grid .showcase-badge.pink { background: var(--salmon-pink); }
+
+.product-grid .showcase-badge.red { background: var(--ferrari-red); }
 
 .product-grid .showcase-actions {
   position: absolute;

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('productName');
+            $table->enum('category',['Genshin Impact', 'Honkai Star Rail']);
             $table->integer('price');
             $table->integer('totalStockAvailable');
             $table->string('productPhoto');

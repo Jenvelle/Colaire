@@ -21,6 +21,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/albedo1.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Genshin Impact',
 
         ],
         [
@@ -30,6 +31,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/alhait.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Archons',
@@ -38,6 +40,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/archons.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Arlecchino',
@@ -46,6 +49,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/arlecchino.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Ayaka',
@@ -54,6 +58,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/ayaka.webp',
             'tag'=>'sale',
             'discount'=>0.15,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Ayato',
@@ -62,6 +67,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/ayato.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Blade',
@@ -70,6 +76,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/blade.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Bronya',
@@ -78,6 +85,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/bronya.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Clara',
@@ -86,6 +94,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/clara.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Columbina',
@@ -94,6 +103,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/columbina.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Cyno',
@@ -102,6 +112,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/cyno.webp',
             'tag'=>'sale',
             'discount'=>0.15,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Danheng',
@@ -110,6 +121,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/danheng.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Diluc',
@@ -118,6 +130,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/diluc.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Dottore',
@@ -126,6 +139,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/dottore.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Faruzan',
@@ -134,6 +148,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/faruzan.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Fischl',
@@ -142,6 +157,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/fischl.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Fu Xuan',
@@ -150,6 +166,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/fu xuan glass phone case.webp',
             'tag'=>'sale',
             'discount'=>0.15,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Ganyu',
@@ -158,6 +175,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/ganyu.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Kafka',
@@ -166,6 +184,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/kafka.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Klee',
@@ -174,6 +193,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/klee.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
         [
             'productName'=>'Seele',
@@ -182,6 +202,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/seele.webp',
             'tag'=>'none',
             'discount'=>0,
+            'category'=>'Honkai Star Rail',
         ],
         [
             'productName'=>'Venti',
@@ -190,6 +211,7 @@ class ProductsSeeder extends Seeder
             'productPhoto'=>'upload/products/venti.webp',
             'tag'=>'new',
             'discount'=>0,
+            'category'=>'Genshin Impact',
         ],
     ]);
     }
