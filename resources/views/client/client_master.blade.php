@@ -734,7 +734,9 @@
               <div class="showcase-wrapper">
                 <div class="showcase-container">
             @include('client.products.best_sellers')   
-            </div>
+                </div>
+</div>
+</div>
 </div>
         
 
