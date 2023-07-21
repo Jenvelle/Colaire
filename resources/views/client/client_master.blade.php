@@ -135,9 +135,14 @@
         </div>
 
         <div class="header-user-actions">
+          @auth
+          <p>nicekok</p>
+          @else
           <button class="action-btn" id="form-open">
             <ion-icon name="person-outline" id="user-icon"></ion-icon>
           </button>
+          @endauth
+          
           <button class="action-btn">
             <ion-icon name="heart-outline"></ion-icon>
             <span class="count">0</span>

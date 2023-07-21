@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 Route::controller(ClientController::class)->group(function (){
     Route::get('/','viewHomepage');
+    Route::post('/login', 'store');
+
 });
 
 require __DIR__.'/auth.php';

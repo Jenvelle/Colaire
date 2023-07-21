@@ -32,7 +32,7 @@
 
                   <div class="showcase-content">
 
-                    <a href="#" class="showcase-category">Jarilo-VI</a>
+                    <a href="#" class="showcase-category">{{$product->category}}</a>
 
                     <a href="#">
                       <h3 class="showcase-title">{{$product->productName}}</h3>
