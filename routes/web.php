@@ -28,9 +28,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::controller(ClientController::class)->group(function (){
-    Route::get('/','viewHomepage')->name('home');
+    Route::get('/','viewHomepage')
+    ->name('home');
+    
     Route::post('/login', 'store');
-
+    
+    Route::get('/logout', 'clientLogout')
+    ->name('logout');
+    
+    Route::post('/search-product', 'searchProduct' )
+    ->name('search.product');
 });
 
 require __DIR__.'/auth.php';

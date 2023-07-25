@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use App\Models\PhoneModel;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Transaction;
@@ -29,8 +30,13 @@ class ClientController extends Controller
         ->limit(4)
         ->orderBy('totalStockSold','desc')
         ->pluck('productId');
-        $top_products=Product::whereIn('id',$best_sellers)->get();
-        return view('client.client_master',compact('new_products','products','top_products'));
+        $top_products=Product::whereIn('id',$best_sellers)
+        ->get();
+
+        $devices=PhoneModel::latest()
+        ->get();
+
+        return view('client.index',compact('new_products','products','top_products','devices'));
     }
     public function store(LoginRequest $request): RedirectResponse
     {
@@ -39,5 +45,21 @@ class ClientController extends Controller
         $request->session()->regenerate();
 
         return redirect()->route('home');
+    }
+
+    public function clientLogout(Request $request): RedirectResponse
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+}
+    public function searchProduct(Request $request){
+        $searchRequest=Product::where('productName','like','%'.$request->search.'%')
+        ->get();
+        return view('client.result', compact('searchRequest'));
     }
 }

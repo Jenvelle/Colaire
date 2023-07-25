@@ -10,14 +10,13 @@ class ProductsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     */
+     */ 
     public function run(): void
     {
        DB::table('products')->insert([
         [
             'productName'=>'Albedo 1',
             'price'=>22,
-            'totalStockAvailable'=>3,
             'productPhoto'=>'upload/products/albedo1.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -27,7 +26,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Alhait',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/alhait.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -36,7 +34,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Archons',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/archons.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -45,7 +42,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Arlecchino',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/arlecchino.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -54,7 +50,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Ayaka',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/ayaka.webp',
             'tag'=>'sale',
             'discount'=>0.15,
@@ -63,7 +58,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Ayato',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/ayato.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -72,7 +66,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Blade',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/blade.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -81,7 +74,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Bronya',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/bronya.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -90,7 +82,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Clara',
             'price'=>20,
-            'totalStockAvailable'=>0,
             'productPhoto'=>'upload/products/clara.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -99,7 +90,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Columbina',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/columbina.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -108,7 +98,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Cyno',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/cyno.webp',
             'tag'=>'sale',
             'discount'=>0.15,
@@ -117,7 +106,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Danheng',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/danheng.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -126,7 +114,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Diluc',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/diluc.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -135,7 +122,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Dottore',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/dottore.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -144,7 +130,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Faruzan',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/faruzan.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -153,7 +138,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Fischl',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/fischl.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -162,7 +146,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Fu Xuan',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/fu xuan glass phone case.webp',
             'tag'=>'sale',
             'discount'=>0.15,
@@ -171,7 +154,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Ganyu',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/ganyu.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -180,7 +162,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Kafka',
             'price'=>20,
-            'totalStockAvailable'=>0,
             'productPhoto'=>'upload/products/kafka.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -189,7 +170,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Klee',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/klee.webp',
             'tag'=>'new',
             'discount'=>0,
@@ -198,7 +178,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Seele',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/seele.webp',
             'tag'=>'none',
             'discount'=>0,
@@ -207,7 +186,6 @@ class ProductsSeeder extends Seeder
         [
             'productName'=>'Venti',
             'price'=>20,
-            'totalStockAvailable'=>15,
             'productPhoto'=>'upload/products/venti.webp',
             'tag'=>'new',
             'discount'=>0,

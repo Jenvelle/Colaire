@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('productName');
             $table->enum('category',['Genshin Impact', 'Honkai Star Rail']);
             $table->integer('price');
-            $table->integer('totalStockAvailable');
             $table->string('productPhoto');
             $table->enum('tag',['sale','new','outOfStock','none'])->default('new');
             $table->float('discount')->default(0);
