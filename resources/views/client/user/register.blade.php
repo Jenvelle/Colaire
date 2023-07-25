@@ -1,10 +1,10 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js%22%3E"></script>
 <div class="form signup_form">
-        <form method="POST" action="{{route('register.client')}}">
+        <form method="POST" action="{{route('register')}}" id="myForm">
           @csrf
           <h2>Signup</h2>
-
           <div class="input_box">
-            <input type="text" name="firstName" placeholder="First Name" required />
+            <input type="text" name="firstName" placeholder="First Name" />
             <i class="uil uil-user"></i>
           </div>
           <div class="input_box">
@@ -24,12 +24,12 @@
             <i class="uil uil-phone"></i>
         </div>
           <div class="input_box">
-            <input type="password" placeholder="Create password" required />
+            <input type="password" name="password" placeholder="Create password" required />
             <i class="uil uil-lock password"></i>
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
           <div class="input_box">
-            <input type="password" placeholder="Confirm password" required />
+            <input type="password" name="password_confirmation" placeholder="Confirm password" required />
             <i class="uil uil-lock password"></i>
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
@@ -39,7 +39,6 @@
           <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
         </form>
       </div>
-
       <script>
         function onlyNumberKey(evt) {
              
@@ -48,5 +47,74 @@
              if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
                  return false;
              return true;
-         }
+        }
       </script>
+      <script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                firstName: {
+                    required : true,
+                }, 
+                lastName: {
+                    required : true,
+                }, 
+                email: {
+                    required : true,
+                    email : true,
+                }, 
+                contactNumber:{
+                    required:true,
+                },
+                address: {
+                    required : true,
+                }, 
+                password: {
+                    required: true,
+                    minlength: {
+                        depends: function(element) {
+                            return $(element).val().length > 0;
+                        },
+                        param: 8
+                    },
+                    equalTo: {
+                        depends: function(element) {
+                            return $(element).val().length > 0;
+                        },
+                        param: "#confirm_password"
+                    }
+                },
+                password_confirmation: {
+                    required: true,
+                    equalTo: {
+                        depends: function(element) {
+                            return $(element).val().length > 0;
+                        },
+                        param: "#password"
+                    }
+                }, 
+               
+            },
+            messages :{
+                password: {
+                    equalTo : 'The password confirmation does not match.',
+                },
+                confirm_password: {
+                    equalTo : 'Password and confirm password does not match.',
+                },
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.validate').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    
+</script>

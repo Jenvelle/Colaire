@@ -39,7 +39,7 @@ Route::controller(ClientController::class)->group(function (){
     Route::post('/search-product', 'searchProduct' )
     ->name('search.product');
 
-    Route::post('/register', 'clientRegister')->name('register.client');
+
 });
 
 require __DIR__.'/auth.php';
