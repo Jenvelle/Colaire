@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Models\PhoneModel;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -11,6 +12,10 @@ use DB;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
+
 class ClientController extends Controller
 {
     public function viewHomepage (){
@@ -61,5 +66,32 @@ class ClientController extends Controller
         $searchRequest=Product::where('productName','like','%'.$request->search.'%')
         ->get();
         return view('client.result', compact('searchRequest'));
+    }
+    
+    public function clientRegister(Request $request):RedirectResponse{
+        $request->validate([
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'contactNumber'=>['required'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'address' => $request->address,
+            'email' => $request->email,
+            'contactNumber'=> $request->contactNumber,
+            'password' => Hash::make($request->password),
+        ]);
+
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        return redirect()
+        ->route('home');
     }
 }

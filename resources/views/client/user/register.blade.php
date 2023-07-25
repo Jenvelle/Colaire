@@ -1,5 +1,6 @@
 <div class="form signup_form">
-        <form action="#">
+        <form method="POST" action="{{route('register.client')}}">
+          @csrf
           <h2>Signup</h2>
 
           <div class="input_box">
@@ -19,7 +20,7 @@
             <i class="uil uil-home"></i>
         </div>
         <div class="input_box">
-            <input type="number" name="contactNumber" placeholder="Phone Number" required />
+            <input type="tel" name="contactNumber" placeholder="Phone Number" onkeypress="return onlyNumberKey(event)" required />
             <i class="uil uil-phone"></i>
         </div>
           <div class="input_box">
@@ -33,8 +34,19 @@
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
 
-          <button class="button">Signup Now</button>
+          <button type="submit" class="button">Signup Now</button>
 
           <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
         </form>
       </div>
+
+      <script>
+        function onlyNumberKey(evt) {
+             
+             // Only ASCII character in that range allowed
+             var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+             if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                 return false;
+             return true;
+         }
+      </script>
