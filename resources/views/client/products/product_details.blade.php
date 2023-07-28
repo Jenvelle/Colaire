@@ -7,7 +7,7 @@
 
             <div class="slider-banner" data-slider>
               <figure class="product-banner">
-                <img src="./assets/images/products/albedo.webp" width="600" height="600" loading="lazy" alt="Nike Sneaker"
+                <img src="{{$searchResult->productPhoto}}" width="600" height="600" loading="lazy" alt="Nike Sneaker"
                   class="img-cover">
               </figure>
             </div>
@@ -25,12 +25,20 @@
             </p>
 
             <div class="wrapper">
+            @if ($searchResult->tag=='sale')
+                <del>${{number_format($product->price,2,'.',',')}}</del>
+                @endif
+                @php
+                $computedPrice=$searchResult->price*(1-$searchResult->discount);
+                @endphp
+              <span class="price" data-total-price>${{number_format($computedPrice,2,'.',',')}}</span>
+            @if ($searchResult->tag=='sale')
+                @php
+                $discountPercentage=$searchResult->discount*100;
+                @endphp
+              <span class="badge">{{$discountPercentage . "%"}}</span>
+            @endif
 
-              <span class="price" data-total-price>₱935.00</span>
-
-              <span class="badge">15%</span>
-
-              <del class="del">₱1100.00</del>
 
             </div>
 
