@@ -39,7 +39,8 @@ Route::controller(ClientController::class)->group(function (){
     Route::post('/search-product', 'searchProduct' )
     ->name('search.product');
 
-
+    Route::get('/product-details/{id}', 'productDetails')
+    ->name('search.result');
 });
 
 require __DIR__.'/auth.php';

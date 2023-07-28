@@ -16,16 +16,16 @@
                         <ion-icon name="favorite-outline"></ion-icon>
                       </button>
 
-                      <button class="btn-action">
+                      <a href="{{route('search.result', $product->id)}}" class="btn-action">
                         <ion-icon name="eye-outline"></ion-icon>
-                      </button>
+                      </a>
 
                       <button class="btn-action">
                         <ion-icon name="repeat-outline"></ion-icon>
                       </button>
 
                       <button class="btn-action">
-                        <a href="Product-details.html" ionname="cart-add-outline"></ion-icon>
+                        <a href="#" ionname="cart-add-outline"></ion-icon>
                       </button>
                     </div>
                   </div>
@@ -34,7 +34,7 @@
 
                     <a href="#" class="showcase-category">{{$product->category}}</a>
 
-                    <a href="#">
+                    <a href="{{route('search.result', $product->id)}}">
                       <h3 class="showcase-title">{{$product->productName}}</h3>
                     </a>
 

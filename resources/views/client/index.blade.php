@@ -23,10 +23,10 @@
 
             <div class="newsletter-header">
 
-              <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+              <h3 class="newsletter-title">Subscribe to Our Newsletter.</h3>
 
               <p class="newsletter-desc">
-                Subscribe the <b>MoraSC</b> to get latest products and discount update.
+                Subscribe to the <b>ColAire</b> newsletter to get latest products and discount update.
               </p>
 
             </div>

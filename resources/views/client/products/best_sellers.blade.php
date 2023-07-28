@@ -1,11 +1,11 @@
 @foreach ($top_products as $product)
                   <div class="showcase">
-                    <a href="#" class="showcase-img-box">
+                    <a href="{{route('search.result','.')}}" class="showcase-img-box">
                       <img src="{{$product->productPhoto}}" alt="{{$product->productName}}" class="showcase-img" width="75"
                         height="75">
                     </a>
                     <div class="showcase-content">
-                      <a href="#">
+                      <a href="{{route('search.result','.')}}">
                         <h4 class="showcase-title">{{$product->productName}}</h4>
                       </a>
                       <div class="showcase-rating">

@@ -87,11 +87,18 @@ class ClientController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        
+
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect()
         ->route('home');
+    }
+    public function productDetails($id){
+        $searchResult=Product::where('id',$id)
+        ->get();
+        return view('client.products.product_details',compact('searchResult'));
     }
 }
