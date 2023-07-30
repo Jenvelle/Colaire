@@ -49,6 +49,9 @@ Route::controller(ClientController::class)->group(function (){
 
    Route::post('/change-profile-info', 'changeProfileInfo')
    ->name('change-profile-info');
+
+   Route::get('/delete-profile', 'deleteProfile')
+   ->name('delete-profile');
 });
 
 require __DIR__.'/auth.php';

@@ -127,9 +127,25 @@ class ClientController extends Controller
             'address'=>$request->address,
             'email'=>$request->email,
         ]);
-        if($request->password){
-            
+        if($request->dbPassword){
+            $findUser->update([
+                'password'=>$request->dbPassword,
+            ]);
         }
         return redirect()->back();
+    }
+
+    public function deleteProfile(){
+        $id=Auth::user()
+        ->id;
+
+        $user=User::findOrFail($id);
+
+        Auth::logout();
+
+        $user->delete();
+
+        return redirect()
+        ->route('home');
     }
 }

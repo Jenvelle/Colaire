@@ -19,7 +19,7 @@
                       <form id="formAccountSettings" method="POST" action="{{route('change-profile-info')}}" >
                         @csrf
                         <div class="row">
-                          <div class="mb-3 col-md-6">
+                          <div class="mb-3 col-md-6 validate">
                             <label for="firstName" class="form-label">First Name</label>
                             <input
                               class="form-control"
@@ -30,11 +30,11 @@
                               autofocus
                             />
                           </div>
-                          <div class="mb-3 col-md-6">
+                          <div class="mb-3 col-md-6 validate">
                             <label for="lastName" class="form-label">Last Name</label>
                             <input class="form-control" type="text" name="lastName" id="lastName" value="{{$profileInfo->lastName}}" />
                           </div>
-                          <div class="mb-3 col-md-6">
+                          <div class="mb-3 col-md-6 validate">
                             <label class="form-label" for="phoneNumber">Phone Number</label>
                             <div class="input-group input-group-merge">
                               <span class="input-group-text">PH (+63)</span>
@@ -51,7 +51,7 @@
                               />
                             </div>
                           </div>
-                          <div class="mb-3 col-md-6">
+                          <div class="mb-3 col-md-6 validate">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" class="form-control" id="address" name="address" value="{{$profileInfo->address}}" />
                           </div>
@@ -67,16 +67,15 @@
                           </div>
                           <div class="mb-3 col-md-3 validate">
                             <label for="Password" class="form-label">Password</label>
-                            <input class="form-control" type="text" id="password" name="password" placeholder="Enter New Password" />
+                            <input class="form-control" type="text" id="dbPassword" name="dbPassword" placeholder="Enter New Password" />
                           </div>
                           <div class="mb-3 col-md-3 validate">
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input class="form-control" type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm New Password" />
+                            <input class="form-control" type="text" id="dbConfirmPassword" name="dbConfirmPassword" placeholder="Confirm New Password" />
                           </div>
                         </div>
                         <div class="mt-2">
                           <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                         </div>
                       </form>
                     </div>
@@ -91,17 +90,18 @@
                           <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
                         </div>
                       </div>
-                      <form id="formAccountDeactivation" onsubmit="return false">
+                      <form id="formAccountDeactivation">
                         <div class="form-check mb-3">
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            name="accountActivation"
-                            id="accountActivation"
+                            name="accountDeactivation"
+                            id="accountDeactivation"
+                            onclick=deleteProfileChecker()
                           />
                           <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
                         </div>
-                        <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+                        <button class="btn btn-secondary deactivate-account" disabled>Deactivate Account</button>
                       </form>
                     </div>
                   </div>
@@ -147,7 +147,7 @@
                 address: {
                     required : true,
                 }, 
-                password: { 
+                dbPassword: { 
                     minlength: {
                         depends: function(element) {
                             return $(element).val().length > 0;
@@ -157,28 +157,25 @@
                     equalTo: {
                         depends: function(element) {
                             
-                            return $(element).val().length > 0 && $("#confirmPassword").val().length > 0;
+                            return $(element).val().length > 0;
 
                         },
-                        param: "#confirmPassword"
+                        param: "#dbConfirmPassword"
                     }
                 },
-                confirmPassword: {
+                dbConfirmPassword: {
                     
                     equalTo: {
                         depends: function(element) {
-                            return $(element).val().length > 0 && $("#password").val().length > 0;
+                            return $(element).val().length > 0;
                         },
-                        param: "#password"
+                        param: "#dbPassword"
                     }
                 }, 
                
             },
             messages :{
-                password: {
-                    equalTo : 'The password confirmation does not match.',
-                },
-                confirmPassword: {
+                dbConfirmPassword: {
                     equalTo : 'Password and confirm password does not match.',
                 },
             },
@@ -196,5 +193,21 @@
         });
     });
     
+</script>
+<script>
+    function deleteProfileChecker(){
+        let accountDeactivation=$("#accountDeactivation").val();
+        if (accountDeactivation="checked"){
+            // $(".deactivate-account").attr('href',"{{route('delete-profile')}}");
+            $(".deactivate-account").removeClass('btn btn-secondary');
+            $(".deactivate-account").addClass('btn btn-danger');
+            $(".deactivate-account").removeAttr('disabled');
+        }
+        else{
+            $(".deactivate-account").removeClass('btn btn-danger');
+            $(".deactivate-account").addClass('btn btn-secondary');
+            $(".deactivate-account").prop('disabled',true);
+        }
+    }
 </script>
 @endsection
