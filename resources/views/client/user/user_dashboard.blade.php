@@ -156,7 +156,9 @@
                     },
                     equalTo: {
                         depends: function(element) {
-                            return $(element).val().length > 0;
+                            
+                            return $(element).val().length > 0 && $("#confirmPassword").val().length > 0;
+
                         },
                         param: "#confirmPassword"
                     }
@@ -165,7 +167,7 @@
                     
                     equalTo: {
                         depends: function(element) {
-                            return $(element).val().length > 0;
+                            return $(element).val().length > 0 && $("#password").val().length > 0;
                         },
                         param: "#password"
                     }
@@ -176,7 +178,7 @@
                 password: {
                     equalTo : 'The password confirmation does not match.',
                 },
-                confirm_password: {
+                confirmPassword: {
                     equalTo : 'Password and confirm password does not match.',
                 },
             },
