@@ -41,6 +41,8 @@ Route::controller(ClientController::class)->group(function (){
 
     Route::get('/product-details/{id}', 'productDetails')
     ->name('search.result');
+
+   Route::get('/ajax/models','phoneModels');
 });
 
 require __DIR__.'/auth.php';

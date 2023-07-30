@@ -97,8 +97,14 @@ class ClientController extends Controller
         ->route('home');
     }
     public function productDetails($id){
-        $searchResult=Product::where('id',$id)
-        ->get();
+        $searchResult=Product::findOrFail($id);
         return view('client.products.product_details',compact('searchResult'));
+
+    }
+
+    public function phoneModels(){
+        $phoneModels=PhoneModel::orderby('model','asc')
+        ->get();
+        return json_encode($phoneModels);
     }
 }
