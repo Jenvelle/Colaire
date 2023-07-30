@@ -65,13 +65,13 @@
                               value="{{$profileInfo->email}}"
                             />
                           </div>
-                          <div class="mb-3 col-md-3">
+                          <div class="mb-3 col-md-3 validate">
                             <label for="Password" class="form-label">Password</label>
-                            <input class="form-control" type="password" id="password" name="password" placeholder="Enter New Password" />
+                            <input class="form-control" type="text" id="password" name="password" placeholder="Enter New Password" />
                           </div>
-                          <div class="mb-3 col-md-3">
+                          <div class="mb-3 col-md-3 validate">
                             <label for="confirmPassword" class="form-label">Confirm Password</label>
-                            <input class="form-control" type="password" id="password" name="confirmPassword" placeholder="Confirm New Password" />
+                            <input class="form-control" type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm New Password" />
                           </div>
                         </div>
                         <div class="mt-2">
@@ -152,16 +152,16 @@
                         depends: function(element) {
                             return $(element).val().length > 0;
                         },
-                        param: 8
+                        param: 6
                     },
                     equalTo: {
                         depends: function(element) {
                             return $(element).val().length > 0;
                         },
-                        param: "#confirm_password"
+                        param: "#confirmPassword"
                     }
                 },
-                password_confirmation: {
+                confirmPassword: {
                     
                     equalTo: {
                         depends: function(element) {

@@ -127,7 +127,9 @@ class ClientController extends Controller
             'address'=>$request->address,
             'email'=>$request->email,
         ]);
-        
+        if($request->password){
+            
+        }
         return redirect()->back();
     }
 }

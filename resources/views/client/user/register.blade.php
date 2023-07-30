@@ -26,12 +26,12 @@
             <i class="uil uil-phone"></i>
         </div>
           <div class="input_box">
-            <input type="password" name="password" placeholder="Create password"  />
+            <input type="password" id="password" name="password" placeholder="Create password"  />
             <i class="uil uil-lock password"></i>
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
           <div class="input_box">
-            <input type="password" name="password_confirmation" placeholder="Confirm password"  />
+            <input type="password" id="confirmPassword" name="password_confirmation" placeholder="Confirm password"  />
             <i class="uil uil-lock password"></i>
             <i class="uil uil-eye-slash pw_hide"></i>
           </div>
@@ -82,7 +82,7 @@
                         depends: function(element) {
                             return $(element).val().length > 0;
                         },
-                        param: "#confirm_password"
+                        param: "#confirmPassword"
                     }
                 },
                 password_confirmation: {
