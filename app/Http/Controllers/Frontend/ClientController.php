@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
 
+
 class ClientController extends Controller
 {
     public function viewHomepage (){
@@ -106,5 +107,27 @@ class ClientController extends Controller
         $phoneModels=PhoneModel::orderby('model','asc')
         ->get();
         return json_encode($phoneModels);
+    }
+    public function viewProfile(){
+        $id=Auth::user()
+        ->id;
+        $profileInfo=User::findOrFail($id);
+        return view('client.user.user_dashboard',compact('profileInfo'));
+
+    }
+
+    public function changeProfileInfo(Request $request){
+        $id=Auth::user()
+        ->id;
+        $findUser=User::findOrFail($id);
+        $findUser->update([
+            'firstName'=>$request->firstName,
+            'lastName'=>$request->lastName,
+            'contactNumber'=>$request->contactNumber,
+            'address'=>$request->address,
+            'email'=>$request->email,
+        ]);
+        
+        return redirect()->back();
     }
 }

@@ -43,6 +43,12 @@ Route::controller(ClientController::class)->group(function (){
     ->name('search.result');
 
    Route::get('/ajax/models','phoneModels');
+
+   Route::get('/my-profile','viewProfile')
+   ->name('view.profile');
+
+   Route::post('/change-profile-info', 'changeProfileInfo')
+   ->name('change-profile-info');
 });
 
 require __DIR__.'/auth.php';

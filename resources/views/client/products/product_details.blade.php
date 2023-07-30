@@ -19,9 +19,9 @@
                       $computedPrice=$searchResult->price*(1-$searchResult->discount);
                       @endphp
                       <span class="badge">{{$discountPercent}}%</span>
-                      <span class="price" data-total-price>{{$computedPrice}}</span>
+                      <span class="price" data-total-price>${{number_format($computedPrice,2,'.',',')}}</span>
                       @else
-                      <span class="price" data-total-price>{{$searchResult->price}}</span>
+                      <span class="price" data-total-price>${{number_format($searchResult->price,2,'.',',')}}</span>
                       @endif
                       
                       
@@ -73,14 +73,20 @@
       </section>
       <script type="text/javascript">
         $(document).ready(function(){
+          displayPhoneModels();
           $('select[name="phone-device"]').on('change',function(){
-            let device=$(this).val();
+            displayPhoneModels();
+          })
+        })
+        function displayPhoneModels(){
+          let device=$('select[name="phone-device"]').val();
             if(device){
               $.ajax({
-                URL:"{{url('/ajax/models')}}",
+                url:"{{url('/ajax/models')}}",
                 type:"GET",
                 dataType:"JSON",
                 success:function(data){
+                  $('select[name="phone-models"]').empty();
                   $.each(data,function(key,value){
                     if(device=='apple'){
                       if(value.device=='apple'){
@@ -93,11 +99,9 @@
                       }
                     }
                   })
-                  
                 }
               })
             }
-          })
-        })
+        }
       </script>
 @endsection

@@ -2732,16 +2732,16 @@ footer {
    * #CUSTOM PROPERTY
    */
 
-  :root {
+  /* :root {
 
-    /**
+    *
      * typography 
-     */
+    
 
     --fs-1: 2.625rem;
     --fs-2: 1.125rem;
 
-  }
+  } */
 
 
 

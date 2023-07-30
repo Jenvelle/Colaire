@@ -1,0 +1,420 @@
+
+:root {
+
+  /**
+   * colors
+   */
+
+  --spanish-gray: hsl(0, 0%, 60%);
+  --sonic-silver: hsl(0, 0%, 47%);
+  --eerie-black: hsl(0, 0%, 13%);
+  --salmon-pink: hsl(353, 100%, 78%);
+  --sandy-brown: hsl(29, 90%, 65%);
+  --bittersweet: hsl(0, 100%, 70%);
+  --ocean-green: hsl(152, 51%, 52%);
+  --davys-gray: hsl(0, 0%, 33%);
+  --cultured: hsl(0, 0%, 93%);
+  --white: hsl(0, 100%, 100%);
+  --onyx: hsl(0, 0%, 27%);
+  --cadet-blue-crayola: hsl(220, 14%, 75%);
+  --dark-electric-blue: hsl(217, 9%, 45%);
+  --shamrock-green: hsl(146, 51%, 41%);
+  --sea-green_10: hsla(146, 75%, 30%, 0.1);
+  --ghost-white: hsl(230, 60%, 98%);
+  --sea-green: hsl(146, 75%, 30%);
+  --honeydew: hsl(146, 74%, 94%);
+  --black: hsl(0, 0%, 0%);
+
+  /**
+   * typography
+   */
+
+   --fs-1: 2.8rem;
+  --fs-2: 1.8rem;
+  --fs-3: 1.5rem;
+  --fs-4: 1.2rem;
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /**
+   * box-shadow
+   */
+
+   --shadow-1: 0 2px 3px hsla(0, 0%, 0%, 0.2);
+   --shadow-2: 0 10px 30px -10px var(--sea-green);
+ 
+   /**
+    * border radius
+    */
+ 
+   --radius-circle: 50%;
+   --radius-15: 15px;
+   --radius-12: 12px;
+   --radius-10: 10px;
+   --radius-6: 6px;
+ 
+   /**
+    * transition
+    */
+ 
+   --transition-1: 0.25s ease;
+   --transition-2: 0.5s ease;
+   --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+ 
+ }
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+button,
+ion-icon { display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { height: auto; }
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+  --ionicon-stroke-width: 40px;
+}
+
+html {
+  font-family: var(--ff-kumbh-sans);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--dark-electric-blue);
+  font-size: 1.6rem;
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container-product { padding-inline: 15px; }
+
+.img-cover {
+  width: 40rem;
+  height: 100%;
+  object-fit: cover;
+  float: left;
+  margin-left: 70rem;
+}
+
+
+
+/*-----------------------------------*\
+  #MAIN CONTENT
+\*-----------------------------------*/
+
+.product-slides {
+  position: relative;
+  margin-inline: -15px;
+  overflow: hidden;
+}
+
+.product-content {
+  padding-block: 24px 50px;
+  padding-inline: 8px;
+}
+
+.product-content .product-subtitle {
+  color: var(--sea-green);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-content .product-title {
+  color: var(--eerie-black);
+  font-size: var(--fs-1);
+  line-height: 1.1;
+  margin-block: 12px 18px;
+}
+
+.product-content .product-text {
+  font-size: var(--fs-3);
+  line-height: 1.7;
+}
+
+.product-content .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-block: 15px 25px;
+}
+
+.product-content .price {
+  color: var(--eerie-black);
+  font-size: var(--fs-1);
+  font-weight: var(--fw-700);
+}
+
+.product-content .badge {
+  background-color: var(--sea-green_10);
+  color: var(--sea-green);
+  font-weight: var(--fw-700);
+  padding: 4px 10px;
+  border-radius: var(--radius-6);
+}
+
+.product-content .del {
+  color: var(--cadet-blue-crayola);
+  font-weight: var(--fw-500);
+}
+.phone-model-text {
+  color: black;
+  /* margin-top: 5rem; */
+}
+.wrapper {
+  height: 100%;
+  display: grid;
+}
+label {
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+select {
+  padding: 1.5rem;
+  width: 20rem;
+  border-radius: .2em;
+  border: 1px solid #acacac;
+  color: #181820;
+  
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+
+  background: url('https://cdn1.iconfinder.com/data/icons/arrows-vol-1-4/24/dropdown_arrow-512.png');
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: right;
+  background-origin: content-box;
+}
+.showcase-rating {
+color: var(--sandy-brown);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.counter-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--ghost-white);
+  border-radius: var(--radius-10);
+  margin-block-end: 15px;
+}
+
+.counter-btn {
+  color: var(--sea-green);
+  font-size: 18px;
+  padding: 19px;
+  transition: var(--transition-1);
+}
+
+.counter-btn ion-icon { --ionicon-stroke-width: 80px; }
+
+.counter-btn:is(:hover, :focus) { color: var(--shamrock-green); }
+
+.counter-wrapper .span {
+  color: var(--eerie-black);
+  font-weight: var(--fw-700);
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 60%;
+  background-color: var(--sea-green);
+  color: var(--white);
+  font-weight: var(--fw-500);
+  padding: 18px;
+  border-radius: var(--radius-10);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+}
+
+.cart-btn ion-icon { --ionicon-stroke-width: 50px; }
+
+.cart-btn:is(:hover, :focus) { background-color: var(--shamrock-green); }
+
+
+
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/* *
+  *responsive for larger than 375px screen
+ */
+ @media (min-width: 375px) {
+ .img-cover {
+  width: 100%;
+  margin-left: auto;
+  padding-top: 2rem;
+ }
+ .wrapper {
+  width: auto;
+ }
+ .product-content {
+  width: 100%;
+  padding: 2rem;
+ }
+}
+
+
+/**
+ * responsive for larger than 768px screen
+ */
+
+@media (min-width: 768px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container-product {
+    max-width: 400px;
+  }
+  .img-cover {
+    width: 90%;
+    margin-left: 6rem;
+  }
+  .product-content {
+    width: 100%;
+    padding: 3rem;
+  }
+
+
+  
+  /**
+   * PRODUCT
+   */
+
+  .product { margin-block-start: 45px; }
+
+  .product .container-product {
+    display: grid;
+    gap: 20px;
+  }
+
+  .product-slides { border-radius: var(--radius-15); }
+
+  .product-banner { max-height: unset; }
+
+}
+
+
+
+
+
+/**
+ * responsive for larger than 992px screen
+ */
+
+@media (min-width: 992px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-2: 1.4rem;
+    --fs-4: 1.3rem;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container-product { max-width: 950px; }
+
+
+  /**
+   * PRODUCT
+   */
+
+  .product { margin-block: 75px 100px; }
+
+  .img-cover {max-width: 700px; margin-left: 20rem;}
+
+  .product .container-product {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+  }
+
+  .product-slides { margin-inline: 0; }
+
+  .product-content { padding: 10rem; width: 100%;}
+
+
+  .btn-group {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .counter-wrapper { margin-block-end: 0; }
+
+}
