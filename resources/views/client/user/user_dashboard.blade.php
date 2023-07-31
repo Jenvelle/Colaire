@@ -90,7 +90,7 @@
                           <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
                         </div>
                       </div>
-                      <form id="formAccountDeactivation">
+                      <!-- <form id="formAccountDeactivation"> -->
                         <div class="form-check mb-3">
                           <input
                             class="form-check-input"
@@ -101,8 +101,8 @@
                           />
                           <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
                         </div>
-                        <button class="btn btn-secondary deactivate-account" disabled>Deactivate Account</button>
-                      </form>
+                        <button class="btn btn-secondary deactivate-account" onclick="window.location='{{route("delete-profile")}}'" disabled>Deactivate Account</button>
+                      <!-- </form> -->
                     </div>
                   </div>
                 </div>
@@ -196,12 +196,12 @@
 </script>
 <script>
     function deleteProfileChecker(){
-        let accountDeactivation=$("#accountDeactivation").val();
-        if (accountDeactivation="checked"){
+        if ($("#accountDeactivation").is(':checked')){
             // $(".deactivate-account").attr('href',"{{route('delete-profile')}}");
             $(".deactivate-account").removeClass('btn btn-secondary');
             $(".deactivate-account").addClass('btn btn-danger');
             $(".deactivate-account").removeAttr('disabled');
+            
         }
         else{
             $(".deactivate-account").removeClass('btn btn-danger');

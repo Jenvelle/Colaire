@@ -52,11 +52,11 @@
         
                     <div class="btn-group">
                       <div class="counter-wrapper">
-                        <button class="counter-btn" data-qty-minus>
+                        <button class="counter-btn" data-qty-minus onclick="subtractNumber()">
                           <ion-icon name="remove-outline"></ion-icon>
                         </button>
-                        <span class="span" data-qty>1</span>
-                        <button class="counter-btn" data-qty-plus>
+                        <span class="span quantity-cart" data-qty>1</span>
+                        <button class="counter-btn" data-qty-plus onclick="addNumber()">
                           <ion-icon name="add-outline"></ion-icon>
                         </button>
                       </div>
@@ -102,6 +102,23 @@
                 }
               })
             }
+        }
+      </script>
+      <script>
+        function addNumber(){
+          let quantity=parseInt($(".quantity-cart").text());
+          quantity++;
+          $(".quantity-cart").text(quantity);
+        }
+        function subtractNumber(){
+          let quantity=parseInt($(".quantity-cart").text());
+          if(quantity!=0){
+            quantity--;
+          }
+          else{
+            quantity=0;
+          }
+          $(".quantity-cart").text(quantity);
         }
       </script>
 @endsection

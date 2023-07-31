@@ -23,9 +23,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::controller(ClientController::class)
+    ->group(function(){
+        Route::get('/logout', 'clientLogout')
+        ->name('logout');
+
+        Route::get('/my-profile','viewProfile')
+        ->name('view.profile');
+
+        Route::post('/change-profile-info', 'changeProfileInfo')
+        ->name('change-profile-info');
+
+        Route::get('/delete-profile', 'deleteProfile')
+        ->name('delete-profile');
+
+    });
 });
 Route::controller(ClientController::class)->group(function (){
     Route::get('/','viewHomepage')
@@ -33,8 +45,7 @@ Route::controller(ClientController::class)->group(function (){
     
     Route::post('/login', 'store');
     
-    Route::get('/logout', 'clientLogout')
-    ->name('logout');
+    
     
     Route::post('/search-product', 'searchProduct' )
     ->name('search.product');
@@ -44,14 +55,9 @@ Route::controller(ClientController::class)->group(function (){
 
    Route::get('/ajax/models','phoneModels');
 
-   Route::get('/my-profile','viewProfile')
-   ->name('view.profile');
+  
 
-   Route::post('/change-profile-info', 'changeProfileInfo')
-   ->name('change-profile-info');
-
-   Route::get('/delete-profile', 'deleteProfile')
-   ->name('delete-profile');
+   
 });
 
 require __DIR__.'/auth.php';
