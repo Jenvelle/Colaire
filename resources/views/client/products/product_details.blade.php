@@ -11,7 +11,7 @@
                     <p class="product-subtitle">{{$searchResult->category}}</p>
                     <h1 class="h1 product-title">{{$searchResult->productName}}</h1>
         
-                    <div class="wrapper">
+                    <div class="product-detail-wrapper">
                       @if($searchResult->tag=='sale')
                       <del class="del">{{$searchResult->price}}</del>
                       @php
@@ -37,7 +37,7 @@
 
                     <p class="phone-model-text">Select Phone Model:</p>
 
-                    <div class="wrapper">
+                    <div class="product-detail-wrapper">
                       <!-- Choosing if Apple or Samsung Model -->
                       <select name="phone-device" id="phone-models"> 
                         <option value="apple">Apple</option>
@@ -61,7 +61,7 @@
                         </button>
                       </div>
                       <!-- function button to cart -->
-                      <button class="cart-btn">
+                      <button class="add-to-cart-btn">
                         <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
                         <span class="span">Add to cart</span>
                       </button>

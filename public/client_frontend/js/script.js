@@ -121,3 +121,23 @@ for (let i = 0; i < accordionBtn.length; i++) {
   });
 
 }
+const profileButton = document.querySelector("#profile-button");
+const userMenu = document.querySelector("#dropdown-user-menu");
+
+// Function to toggle the user menu
+function toggleUserMenu() {
+  userMenu.classList.toggle("show-user-menu");
+}
+
+// Event listener for the profile button click
+profileButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  toggleUserMenu();
+});
+
+// Event listener to close the user menu when clicking outside of it
+document.addEventListener("click", (event) => {
+  if (!userMenu.contains(event.target) && event.target !== profileButton) {
+    userMenu.classList.remove("show-user-menu");
+  }
+});

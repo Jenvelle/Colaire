@@ -57,7 +57,19 @@
 
         <div class="header-user-actions">
           @auth
-          <a href="{{route('logout')}}">Logout</a>
+          <!-- Once logged in -->
+          <div class="user-dropdown">
+            <button class="action-btn" id="profile-button">
+              <ion-icon name="person-outline" id="user-icon"></ion-icon>
+            </button>
+            <div class="user-menu" id="dropdown-user-menu">
+              <ul>
+                <li><a href="{{route('view.profile')}}">Profile</a></li>
+                <li><a href="{{route('logout')}}">Log Out</a></li>
+              </ul>
+            </div>
+          </div> 
+          <!-- End Once logged in -->
           @else
           <button class="action-btn" id="form-open">
             <ion-icon name="person-outline" id="user-icon"></ion-icon>

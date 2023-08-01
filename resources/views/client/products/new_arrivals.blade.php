@@ -12,10 +12,6 @@
 
                     <div class="showcase-actions">
 
-                      <button class="btn-action">
-                        <ion-icon name="favorite-outline"></ion-icon>
-                      </button>
-
                       <a href="{{route('search.result', $product->id)}}" class="btn-action">
                         <ion-icon name="eye-outline"></ion-icon>
                       </a>
