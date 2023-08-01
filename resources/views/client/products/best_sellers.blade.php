@@ -22,7 +22,7 @@
                         @php
                         $computedPrice=$product->price*(1-$product->discount);
                         @endphp
-                        <p class="price">${{number_format($computedPrice,2,'.',',')}}</p>
+                        <p class="product-price">${{number_format($computedPrice,2,'.',',')}}</p>
                       </div>
                     </div>
                   </div>
