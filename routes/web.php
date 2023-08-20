@@ -39,6 +39,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/add-to-cart/{id}/{qty}', 'addToCart');
 
+        Route::get('/cart', 'viewCart')
+        ->name('view.cart');
+
     });
 });
 Route::controller(ClientController::class)->group(function (){
@@ -57,8 +60,7 @@ Route::controller(ClientController::class)->group(function (){
 
     Route::get('/password-forgot', 'forgotPassword');
 
-    Route::get('/cart', 'viewCart')
-    ->name('view.cart');
+    
 
 
 

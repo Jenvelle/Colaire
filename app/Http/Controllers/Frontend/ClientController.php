@@ -160,10 +160,10 @@ class ClientController extends Controller
     }
 
     public function viewCart(){
-        $id=Auth::user()
+        $userId=Auth::user()
         ->id;
 
-        Redis::hgetall('cart-'.$id);
+        Redis::hgetall('cart-'.$userId);
         return view('client.cart_header');
         
     }
