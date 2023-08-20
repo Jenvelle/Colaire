@@ -19,7 +19,7 @@
               <input type="checkbox" id="check" name="remember" />
               <label for="check">Remember me</label>
             </span>
-            <a href="#" class="forgot_pw">Forgot password?</a>
+            <a href="{{route('password.request')}}" class="forgot_pw">Forgot password?</a>
           </div>
 
           <button type="submit" class="button">Login Now</button>

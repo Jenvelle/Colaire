@@ -22,6 +22,13 @@ class UsersSeeder extends Seeder
             'password'=>Hash::make('admin123'),
 
         ],
+        [
+            'firstName'=>'user',
+            'lastName'=>'User',
+            'email'=>'user@user.com',
+            'password'=>Hash::make('user123'),
+
+        ],
         ]
     );
     }

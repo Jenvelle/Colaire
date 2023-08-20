@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete-profile', 'deleteProfile')
         ->name('delete-profile');
 
+        Route::get('/add-to-cart/{id}/{qty}', 'addToCart');
+
     });
 });
 Route::controller(ClientController::class)->group(function (){
@@ -45,17 +47,20 @@ Route::controller(ClientController::class)->group(function (){
     
     Route::post('/login', 'store');
     
-    
-    
     Route::post('/search-product', 'searchProduct' )
     ->name('search.product');
 
     Route::get('/product-details/{id}', 'productDetails')
     ->name('search.result');
 
-   Route::get('/ajax/models','phoneModels');
+    Route::get('/ajax/models','phoneModels');
 
-  
+    Route::get('/password-forgot', 'forgotPassword');
+
+    Route::get('/cart', 'viewCart')
+    ->name('view.cart');
+
+
 
    
 });

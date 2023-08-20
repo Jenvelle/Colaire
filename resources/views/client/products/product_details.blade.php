@@ -8,6 +8,7 @@
                 <img src="{{asset($searchResult->productPhoto)}}" loading="lazy" alt="Albedo"
                   class="img-cover">
                   <div class="product-content">
+                    <input type="hidden" value="{{$searchResult->id}}" id="productId">
                     <p class="product-subtitle">{{$searchResult->category}}</p>
                     <h1 class="h1 product-title">{{$searchResult->productName}}</h1>
         
@@ -55,13 +56,13 @@
                         <button class="counter-btn" data-qty-minus onclick="subtractNumber()">
                           <ion-icon name="remove-outline"></ion-icon>
                         </button>
-                        <span class="span quantity-cart" data-qty>1</span>
+                        <span class="span quantity-cart" data-qty id="quantity">1</span>
                         <button class="counter-btn" data-qty-plus onclick="addNumber()">
                           <ion-icon name="add-outline"></ion-icon>
                         </button>
                       </div>
                       <!-- function button to cart -->
-                      <button class="add-to-cart-btn">
+                      <button class="add-to-cart-btn" onclick="addToCart()">
                         <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
                         <span class="span">Add to cart</span>
                       </button>
@@ -74,10 +75,24 @@
       <script type="text/javascript">
         $(document).ready(function(){
           displayPhoneModels();
+          addtoCart();
           $('select[name="phone-device"]').on('change',function(){
             displayPhoneModels();
           })
         })
+        function addToCart (){
+          let productId = $('#productId').val();
+          let quantity = $("#quantity").text();
+          $.ajax({
+            url:"{{url('/add-to-cart')}}/"+ productId+ "/" + quantity,
+            success: function(totalCartCount){
+              $('#cartCount').text(totalCartCount)
+            },
+            error: function(){
+              $(".home").addClass('show');
+            }
+          })
+        }
         function displayPhoneModels(){
           let device=$('select[name="phone-device"]').val();
             if(device){
@@ -120,5 +135,8 @@
           }
           $(".quantity-cart").text(quantity);
         }
+      </script>
+      <script>
+        
       </script>
 @endsection

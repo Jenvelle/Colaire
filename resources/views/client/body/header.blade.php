@@ -80,9 +80,9 @@
             <ion-icon name="heart-outline"></ion-icon>
             <span class="count">0</span>
           </button>
-          <button class="action-btn">
+          <a class="action-btn" href="{{route('view.cart')}}">
             <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
+            <span class="count" id="cartCount">0</span>
+          </a>
         </div>
       </div>

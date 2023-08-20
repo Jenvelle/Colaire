@@ -1,3 +1,6 @@
+@extends('client.client_master')
+@section('client')
+
 <div class="container">
     <div class="shopping-cart">
       <div class="shopping-cart-header">
@@ -48,3 +51,4 @@
       <a href="#" class="button">Checkout</a>
     </div>
   </div>
+  @endsection

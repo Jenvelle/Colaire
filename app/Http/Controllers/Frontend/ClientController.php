@@ -15,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Redis;
 
 
 class ClientController extends Controller
@@ -88,8 +89,6 @@ class ClientController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        
-
         event(new Registered($user));
 
         Auth::login($user);
@@ -148,4 +147,25 @@ class ClientController extends Controller
         return redirect()
         ->route('home');
     }
+
+    // public function forgotPassword(){
+        
+    // }
+    public function addToCart($id, $qty){
+        // user id, product id, quantity
+        $userId = Auth::user()->id;
+        Redis::hincrby('cart-'.$userId, $id, $qty);
+        $totalCartCount = Redis::hlen('cart-'.$userId);
+        return $totalCartCount;
+    }
+
+    public function viewCart(){
+        $id=Auth::user()
+        ->id;
+
+        Redis::hgetall('cart-'.$id);
+        return view('client.cart_header');
+        
+    }
+
 }
