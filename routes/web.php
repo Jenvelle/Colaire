@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/cart', 'viewCart')
         ->name('view.cart');
 
+        Route::get('/cart-qty','cartQuantity');
+
     });
 });
 Route::controller(ClientController::class)->group(function (){

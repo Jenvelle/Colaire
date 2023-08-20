@@ -53,11 +53,11 @@
         
                     <div class="btn-group">
                       <div class="counter-wrapper">
-                        <button class="counter-btn" data-qty-minus onclick="subtractNumber()">
+                        <button class="counter-btn" data-qty-minus onclick="subtractNumber('quantity')">
                           <ion-icon name="remove-outline"></ion-icon>
                         </button>
                         <span class="span quantity-cart" data-qty id="quantity">1</span>
-                        <button class="counter-btn" data-qty-plus onclick="addNumber()">
+                        <button class="counter-btn" data-qty-plus onclick="addNumber('quantity')">
                           <ion-icon name="add-outline"></ion-icon>
                         </button>
                       </div>

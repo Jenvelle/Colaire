@@ -141,3 +141,25 @@ document.addEventListener("click", (event) => {
     userMenu.classList.remove("show-user-menu");
   }
 });
+
+function addNumber(idName){
+  let quantity=parseInt($("#"+idName).text());
+  quantity++;
+  $("#"+idName).text(quantity);
+}
+
+function subtractNumber(idName){
+  let quantity=parseInt($("#"+idName).text());
+  if(quantity!=0){
+    quantity--;
+  }
+  else{
+    quantity=0;
+  }
+  $("#"+idName).text(quantity);
+}
+
+function computePrice(idName){
+  let price=parseInt($("#"+idName).text());
+  
+}

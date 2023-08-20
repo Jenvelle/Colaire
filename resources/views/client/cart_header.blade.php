@@ -4,51 +4,50 @@
 <div class="container">
     <div class="shopping-cart">
       <div class="shopping-cart-header">
-        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+        <!-- <i class="fa fa-shopping-cart cart-icon"></i>
+        <span class="badge">3</span> -->
+        <!-- doubled shopping cart icon. remove and adjust -->
         <div class="shopping-cart-total">
           <span class="lighter-text">Total:</span>
-          <span class="main-color-text">₱27,000</span>
+          <span class="main-color-text">
+          </span>
         </div>
       </div>
-  
+       @foreach ($data as $product)
       <div class="shopping-cart-items">
         <div class="clearfix">
-          <img src="/assets/images/products/blade.webp" alt="item1" class="img-card"/>
-          <span class="item-name">Blade
+          <img src="{{$product['product']->productPhoto}}" alt="item1" class="img-card"/>
+          <span class="item-name">{{$product['product']->productName}}
           <button class="text-remove">Remove</button>
           </span>
-          <span class="item-price">₱900.00</span>
+          @php
+          $totalPrice=$product['product']->price * $product['quantity'];
+          @endphp
+          <span class="item-price" id="displayItemPrice">${{number_format($totalPrice,2,'.',',')}}</span>
           <div class="quantity">
-            <i class="uil uil-plus" type="button" name="button"><img src="plus.svg" alt=""/></i> 
-            <input type="text" name="name" value="1">
-            <i class="uil uil-minus" type="button" name="button"><img src="minus.svg" alt=""/></i>
+            <i class="uil uil-plus" type="button" name="button" onclick="addNumber('cart-qty')"><img src="plus.svg" alt=""/></i> 
+            <span id="cart-qty">{{$product['quantity']}}</span>
+            <i class="uil uil-minus" type="button" name="button" onclick="subtractNumber('cart-qty')"><img src="minus.svg" alt=""/></i>
           </div>
         </div>
-  
-        <div class="clearfix">
-          <img src="/assets/images/products/albedo1.webp" alt="item1" class="img-card"/>
-          <span class="item-name">Albedo<button class="text-remove">Remove</button></span>
-          <span class="item-price">₱900.00</span>
-          <div class="quantity">
-            <i class="uil uil-plus" type="button" name="button"><img src="plus.svg" alt=""/></i> 
-            <input type="text" name="name" value="1">
-            <i class="uil uil-minus" type="button" name="button"><img src="minus.svg" alt=""/></i>
-          </div>
-        </div>
-  
-        <div class="clearfix">
-          <img src="/assets/images/products/arlecchino.webp" alt="item1" class="img-card"/>
-          <span class="item-name">Arlecchino<button class="text-remove">Remove</button></span>
-          <span class="item-price">₱900.00</span>
-          <div class="quantity">
-            <i class="uil uil-plus" type="button" name="button"><img src="plus.svg" alt=""/></i> 
-            <input type="text" name="name" value="1">
-            <i class="uil uil-minus" type="button" name="button"><img src="minus.svg" alt=""/></i>
-          </div>
-        </div>
-      </ul>
-    </hr>
+        @endforeach
       <a href="#" class="button">Checkout</a>
     </div>
   </div>
+  <!-- @dump($cartItems) -->
+  <script>
+    $(document).ready(function(){
+      
+    });
+    let cartItems=@JSON($data);
+//     for (const key in cartItems) {
+//       if (cartItems.hasOwnProperty(key)) {
+//         const newKey = key;
+//         const newValue = cartItems[key];
+//         console.log(`Key: ${newKey}, Value: ${newValue}`);
+// }
+// }
+
+    console.log(cartItems)
+  </script>
   @endsection

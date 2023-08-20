@@ -162,10 +162,21 @@ class ClientController extends Controller
     public function viewCart(){
         $userId=Auth::user()
         ->id;
-
-        Redis::hgetall('cart-'.$userId);
-        return view('client.cart_header');
+        $data=[];
+        $cartItems=Redis::hgetall('cart-'.$userId);
+        foreach ($cartItems as $key => $value) {
+            list($newKey, $newValue) = [$key, $value];
+           $product=Product::findOrFail($newKey);
+           $data[]=['product'=>$product,'quantity'=>$newValue];
+        }
+        return view('client.cart_header', compact('cartItems','data'));
         
     }
 
+    public function cartQuantity(){
+        $userId=Auth::user()
+        ->id;
+        $cartQuantity=Redis::hlen('cart-'.$userId);
+        return $cartQuantity;
+    }
 }

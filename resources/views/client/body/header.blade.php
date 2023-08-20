@@ -82,7 +82,24 @@
           </button>
           <a class="action-btn" href="{{route('view.cart')}}">
             <ion-icon name="bag-handle-outline"></ion-icon>
+            @auth
             <span class="count" id="cartCount">0</span>
+            @else
+            <span class="count" id="cartCount">0</span>
+            @endauth
           </a>
         </div>
       </div>
+      <script>
+        $(document).ready(function(){
+          viewCartCounterQuantity();
+        })
+        function viewCartCounterQuantity(){
+          $.ajax({
+            url:"{{url('/cart-qty')}}",
+            success: function(quantity){
+              $("#cartCount").text(quantity);
+            },
+          })
+        }
+      </script>
