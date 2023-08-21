@@ -44,6 +44,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/cart-qty','cartQuantity');
 
+        Route::get('/add-cart-qty/{productId}/{quantity}','addCartQuantity');
+
+        Route::get('/sub-cart-qty/{productId}/{quantity}', 'subtractCartQuantity');
+
+        Route::get('/del-cart-item/{productId}', 'deleteCartItem');
+
     });
 });
 Route::controller(ClientController::class)->group(function (){

@@ -179,4 +179,25 @@ class ClientController extends Controller
         $cartQuantity=Redis::hlen('cart-'.$userId);
         return $cartQuantity;
     }
+
+    public function addCartQuantity($productId, $quantity){
+        $userId=Auth::user()
+        ->id;
+
+        Redis::hincrby('cart-'.$userId, $productId, $quantity);
+
+    }
+
+    public function subtractCartQuantity($productId, $quantity){
+        $userId=Auth::user()
+        ->id;
+
+        Redis::hdecrby('cart-'.$userId, $productId, $quantity);
+    }
+
+    public function deleteCartItem ($productId){
+        $userId=Auth::user()
+        ->id;
+        Redis::hdel('cart-'.$userId, $productId);
+    }
 }

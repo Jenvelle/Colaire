@@ -13,21 +13,38 @@
           </span>
         </div>
       </div>
-       @foreach ($data as $product)
+       @foreach ($data as $key=>$product)
       <div class="shopping-cart-items">
-        <div class="clearfix">
+        <div class="clearfix"  id="{{$key}}-cartItem">
           <img src="{{$product['product']->productPhoto}}" alt="item1" class="img-card"/>
           <span class="item-name">{{$product['product']->productName}}
-          <button class="text-remove">Remove</button>
+            @php
+            $productIdCartItem=$product['product']->id;
+            $uniqueDisplayItemPrice=$key."-displayItemPrice";
+            $uniqueCartQty=$key."-cart-qty";
+            $uniqueUnitPrice=$key."-unitPrice";
+            @endphp
+          <button class="text-remove"
+          onclick="removeCartItem('{{$key}}-cartItem', '{{$productIdCartItem}}');">Remove</button>
           </span>
           @php
           $totalPrice=$product['product']->price * $product['quantity'];
           @endphp
-          <span class="item-price" id="displayItemPrice">${{number_format($totalPrice,2,'.',',')}}</span>
+          <span class="item-price" id="{{$uniqueDisplayItemPrice}}">${{number_format($totalPrice,2,'.',',')}}</span>
           <div class="quantity">
-            <i class="uil uil-plus" type="button" name="button" onclick="addNumber('cart-qty')"><img src="plus.svg" alt=""/></i> 
-            <span id="cart-qty">{{$product['quantity']}}</span>
-            <i class="uil uil-minus" type="button" name="button" onclick="subtractNumber('cart-qty')"><img src="minus.svg" alt=""/></i>
+            <input type="hidden" value="{{$product['product']->price}}" id="{{$uniqueUnitPrice}}"/>
+            <!-- <input type="hidden" value="{{$product['product']->id}}" id="{{$key}}-cartItemId"/> -->
+            <i class="uil uil-plus"
+            onclick="addNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}');
+            computePrice('{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
+              <img src="plus.svg" alt=""/>
+            </i>
+            <span id="{{$uniqueCartQty}}">{{$product['quantity']}}</span>
+            <i class="uil uil-minus"
+            onclick="subtractNumber('{{$uniqueCartQty}}');
+            computePrice('{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
+              <img src="minus.svg" alt=""/>
+            </i>
           </div>
         </div>
         @endforeach
@@ -36,9 +53,6 @@
   </div>
   <!-- @dump($cartItems) -->
   <script>
-    $(document).ready(function(){
-      
-    });
     let cartItems=@JSON($data);
 //     for (const key in cartItems) {
 //       if (cartItems.hasOwnProperty(key)) {
@@ -48,6 +62,6 @@
 // }
 // }
 
-    console.log(cartItems)
+    console.log("{{url('/del')}}")
   </script>
   @endsection

@@ -142,24 +142,52 @@ document.addEventListener("click", (event) => {
   }
 });
 
-function addNumber(idName){
+function addNumber(idName,productId){
   let quantity=parseInt($("#"+idName).text());
-  quantity++;
-  $("#"+idName).text(quantity);
+  $.ajax({
+    url:"http://localhost:8000/add-cart-qty/"+productId+"/"+quantity,
+    success:function(){
+      quantity++;
+      $("#"+idName).text(quantity);
+    }
+  })
 }
 
 function subtractNumber(idName){
   let quantity=parseInt($("#"+idName).text());
-  if(quantity!=0){
+  if(quantity!=1){
     quantity--;
   }
   else{
-    quantity=0;
+    quantity=1;
   }
   $("#"+idName).text(quantity);
 }
 
-function computePrice(idName){
-  let price=parseInt($("#"+idName).text());
+function computePrice(priceId, quantityId, unitPriceId){
+  let quantity=$("#"+quantityId).text();
+  let unitPrice=parseFloat($("#"+unitPriceId).val());
+  let totalPrice= unitPrice * quantity;
+  $("#"+priceId).text("$"+totalPrice+".00");
+}
+
+function removeCartItem(idName, productId){
+  $.ajax({
+    url:"http://localhost:8000/del-cart-item/"+productId,
+    success:function(data){
+      $("#"+idName).remove();
+      viewCartCounterQuantity();
+      console.log(data);
+    }
+  })
   
+}
+
+function viewCartCounterQuantity(){
+  $.ajax({
+    url:"http://localhost:8000/cart-qty",
+    success: function(quantity){
+      $("#cartCount").text(quantity);
+    },
+  })
 }
