@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Redis;
-
+use Illuminate\Support\Carbon;
 
 class ClientController extends Controller
 {
@@ -216,6 +216,7 @@ class ClientController extends Controller
             list($newKey, $newValue) = [$key, $value];
            $product=Product::findOrFail($newKey);
            $products[]=[
+            "productId"=>$newKey,
             "productName"=>$product->productName,
             "productQuantity"=>$newValue,
             "productTotalPrice"=>$product->price * $newValue,
@@ -227,7 +228,52 @@ class ClientController extends Controller
         return view('client.payment_form', compact('user','cartItems','products','totalCartItemPrice'));
     }
 
-    public function createTransaction(){
-        return view ('client.receipt');
+    public function createTransaction(Request $request){
+        $id=Auth::user()
+        ->id;
+        $totalCartItemPrice=0;
+        $productIds=$request->input('productId');
+        $data=[];
+        $billedTo=[
+            'firstName'=>$request->firstName,
+            'lastName'=>$request->lastName,
+            'address'=>$request->address,
+            'email'=>$request->email,
+            'contactNumber'=>$request->contactNumber,
+        ];
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = substr(str_shuffle($characters), 0, 10);
+        $dateString = date('Ymd');
+        $ref_no = 'CA' . $dateString . $randomString;
+
+        while (Transaction::where('transaction_id', $ref_no)->exists()) {
+            $randomString = substr(str_shuffle($characters), 0, 10);
+            $ref_no = 'CA' . $dateString . $randomString;
+        }
+        foreach ($productIds as $productId){
+            $quantity=Redis::hget('cart-'.$id, $productId);
+            Transaction::insert([
+                'transaction_id'=>$ref_no,
+                'email'=>$request->email,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
+                'productId'=>$productId,
+                'amountSold'=>$quantity,
+                'totalPrice'=>Product::findOrFail($productId)
+                ->price * $quantity,
+            ]);
+            $data[]=[
+                'productName'=>Product::findOrFail($productId)->productName,
+                'productPrice'=>Product::findOrFail($productId)
+                ->price,
+                'quantity'=>$quantity,
+                'totalPrice'=>Product::findOrFail($productId)
+                ->price* $quantity,
+            ];  
+        }
+        foreach ($data as $item){
+            $totalCartItemPrice+=$item['totalPrice'];
+        }
+        Redis::del('cart-'.$id);
+        return view ('client.receipt', compact('billedTo','data','totalCartItemPrice','ref_no'));
     }
 }

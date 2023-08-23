@@ -26,26 +26,34 @@
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">Billing Information</h4>
               <form class="needs-validation" novalidate="" action="{{route('receipt')}}" method="POST">
-                @csfr
+                @csrf
+                @foreach ($products as $product)
+                <input type="hidden" name="productId[]" value="{{$product['productId']}}">
+                @endforeach
                 <div class="row g-3">
                   <div class="col-sm-6">
                     <label for="firstName" class="form-label">First name:</label>
-                    <input type="text" class="form-control" id="firstName" value="{{$user->firstName}}" disabled>
+                    <input type="text" class="form-control" id="firstName" value="{{$user->firstName}}" name="firstName" >
                   </div>
       
                   <div class="col-sm-6">
-                    <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" value="{{$user->lastName}}" disabled>
+                    <label for="lastName" class="form-label">Last name:</label>
+                    <input type="text" class="form-control" id="lastName" value="{{$user->lastName}}" name="lastName" >
                   </div>
       
                   <div class="col-12">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" value="{{$user->email}}" disabled>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" value="{{$user->email}}" name="email" >
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Contact Number:</label>
+                    <input type="text" class="form-control" id="contactNumber" value="{{$user->contactNumber}}" name="contactNumber" onkeypress="return onlyNumberKey(event)" >
                   </div>
       
                   <div class="col-12">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" value="{{$user->address}}" disabled>
+                    <label for="address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="address" value="{{$user->address}}" name="address">
                   </div>
            
                 <h4 class="mb-3">Payment</h4>

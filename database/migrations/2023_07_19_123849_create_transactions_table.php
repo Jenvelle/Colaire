@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('productId');
             $table->integer('totalPrice');
             $table->enum('status', ['paid','pending','cancelled','completed']);
-            $table->integer('totalStockSold');
             // $table->string('processed_by');
             $table->timestamps();
         });

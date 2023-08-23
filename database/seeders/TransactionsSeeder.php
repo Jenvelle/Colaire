@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 use DB;
 
 class TransactionsSeeder extends Seeder
@@ -21,7 +22,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>1,
                 'totalPrice'=>22,
                 'status'=>'paid',
-                'totalStockSold'=>1,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -31,7 +32,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>1,
                 'totalPrice'=>22,
                 'status'=>'paid',
-                'totalStockSold'=>2,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -41,7 +42,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>1,
                 'totalPrice'=>22,
                 'status'=>'pending',
-                'totalStockSold'=>2,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -51,7 +52,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>3,
                 'totalPrice'=>20,
                 'status'=>'pending',
-                'totalStockSold'=>0,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -61,7 +62,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>3,
                 'totalPrice'=>20,
                 'status'=>'cancelled',
-                'totalStockSold'=>0,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -71,7 +72,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>3,
                 'totalPrice'=>20,
                 'status'=>'cancelled',
-                'totalStockSold'=>0,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -81,7 +82,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>2,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>1,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -91,7 +92,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>2,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>2,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -101,7 +102,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>4,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>1,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -111,7 +112,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>5,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>1,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -121,7 +122,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>5,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>2,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -131,7 +132,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>5,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>3,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
             [
@@ -141,7 +142,7 @@ class TransactionsSeeder extends Seeder
                 'productId'=>5,
                 'totalPrice'=>20,
                 'status'=>'completed',
-                'totalStockSold'=>4,
+                'created_at'=>Carbon::now()->setTimezone('Asia/Manila'),
     
             ],
         ]
