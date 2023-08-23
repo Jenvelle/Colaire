@@ -274,6 +274,6 @@ class ClientController extends Controller
             $totalCartItemPrice+=$item['totalPrice'];
         }
         Redis::del('cart-'.$id);
-        return view ('client.receipt', compact('billedTo','data','totalCartItemPrice','ref_no'));
+        return view ('client.receipt', compact('billedTo','data','totalCartItemPrice','ref_no', 'dateString'));
     }
 }

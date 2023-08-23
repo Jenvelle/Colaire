@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Frontend\ClientController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','App\Http\Middleware\Role:user'])->group(function () {
     Route::controller(ClientController::class)
     ->group(function(){
         Route::get('/logout', 'clientLogout')
@@ -74,13 +75,16 @@ Route::controller(ClientController::class)->group(function (){
 
     Route::get('/ajax/models','phoneModels');
 
-    Route::get('/password-forgot', 'forgotPassword');
-
-    
-
-
-
-   
+    Route::get('/password-forgot', 'forgotPassword');   
 });
 
+Route::middleware('App\Http\Middleware\Role:admin')->group(function (){
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/admin-dashboard', 'viewAdminDashboard')
+        ->name('admin.dashboard');
+    });
+});
+
+
 require __DIR__.'/auth.php';
+

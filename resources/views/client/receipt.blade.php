@@ -41,11 +41,7 @@
                                   </div>
                                   <div class="mt-4">
                                       <h5 class="font-size-15 mb-1">Invoice Date:</h5>
-                                      <p>12 Jan, 2023</p>
-                                  </div>
-                                  <div class="mt-4">
-                                      <h5 class="font-size-15 mb-1">Order No:</h5>
-                                      <p>#1123456</p>
+                                      <p>{{$dateString}}</p>
                                   </div>
                               </div>
                           </div>
