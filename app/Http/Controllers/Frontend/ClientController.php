@@ -155,8 +155,12 @@ class ClientController extends Controller
         // user id, product id, quantity
         $userId = Auth::user()->id;
         Redis::hincrby('cart-'.$userId, $id, $qty);
-        $totalCartCount = Redis::hlen('cart-'.$userId);
-        return $totalCartCount;
+        return $this->cartQuantity();
+    }
+
+    public function deleteCart(){
+        $userId = Auth::user()->id;
+        Redis::del('cart-'.$userId);
     }
 
     public function viewCart(){
@@ -180,24 +184,28 @@ class ClientController extends Controller
         return $cartQuantity;
     }
 
-    public function addCartQuantity($productId, $quantity){
+    public function addCartQuantity($productId){
         $userId=Auth::user()
         ->id;
 
-        Redis::hincrby('cart-'.$userId, $productId, $quantity);
+        Redis::hincrby('cart-'.$userId, $productId, 1);
 
     }
 
-    public function subtractCartQuantity($productId, $quantity){
+    public function subtractCartQuantity($productId){
         $userId=Auth::user()
         ->id;
 
-        Redis::hdecrby('cart-'.$userId, $productId, $quantity);
+        Redis::hincrby('cart-'.$userId, $productId, -1);
     }
 
     public function deleteCartItem ($productId){
         $userId=Auth::user()
         ->id;
         Redis::hdel('cart-'.$userId, $productId);
+    }
+
+    public function cartCheckout(){
+        return view('client.payment_form');
     }
 }

@@ -35,20 +35,18 @@
             <input type="hidden" value="{{$product['product']->price}}" id="{{$uniqueUnitPrice}}"/>
             <!-- <input type="hidden" value="{{$product['product']->id}}" id="{{$key}}-cartItemId"/> -->
             <i class="uil uil-plus"
-            onclick="addNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}');
-            computePrice('{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
+            onclick="addNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}',1,'{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
               <img src="plus.svg" alt=""/>
             </i>
             <span id="{{$uniqueCartQty}}">{{$product['quantity']}}</span>
             <i class="uil uil-minus"
-            onclick="subtractNumber('{{$uniqueCartQty}}');
-            computePrice('{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
+            onclick="subtractNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}',1,'{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
               <img src="minus.svg" alt=""/>
             </i>
           </div>
         </div>
         @endforeach
-      <a href="#" class="button">Checkout</a>
+      <a href="{{route('cart.checkout')}}" class="button">Checkout</a>
     </div>
   </div>
   <!-- @dump($cartItems) -->

@@ -1,3 +1,5 @@
+@extends('client.client_master')
+@section('client')
 <div class="container ">
         <main class="shadow-sm border-1 ">
           <div class="row g-5">
@@ -199,3 +201,4 @@
           </div>
         </main>
     </div>
+@endsection

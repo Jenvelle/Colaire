@@ -39,16 +39,21 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/add-to-cart/{id}/{qty}', 'addToCart');
 
+        Route::get('/del-cart', 'deleteCart');
+
         Route::get('/cart', 'viewCart')
         ->name('view.cart');
 
         Route::get('/cart-qty','cartQuantity');
 
-        Route::get('/add-cart-qty/{productId}/{quantity}','addCartQuantity');
+        Route::get('/add-cart-qty/{productId}','addCartQuantity');
 
-        Route::get('/sub-cart-qty/{productId}/{quantity}', 'subtractCartQuantity');
+        Route::get('/sub-cart-qty/{productId}', 'subtractCartQuantity');
 
         Route::get('/del-cart-item/{productId}', 'deleteCartItem');
+
+        Route::get('/cart-checkout', 'cartCheckout')
+        ->name('cart.checkout');
 
     });
 });

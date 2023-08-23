@@ -142,26 +142,53 @@ document.addEventListener("click", (event) => {
   }
 });
 
-function addNumber(idName,productId){
+function addNumber(idName,productId,status,priceId, quantityId, unitPriceId){
   let quantity=parseInt($("#"+idName).text());
-  $.ajax({
-    url:"http://localhost:8000/add-cart-qty/"+productId+"/"+quantity,
-    success:function(){
-      quantity++;
-      $("#"+idName).text(quantity);
-    }
-  })
-}
-
-function subtractNumber(idName){
-  let quantity=parseInt($("#"+idName).text());
-  if(quantity!=1){
-    quantity--;
+  if(status==1){
+    $.ajax({
+      url:"http://localhost:8000/add-cart-qty/"+productId,
+      success:function(){
+        quantity++;
+        $("#"+idName).text(quantity);
+        computePrice(priceId, quantityId, unitPriceId);
+      }
+    })
   }
   else{
-    quantity=1;
+    quantity++;
+    $("#"+idName).text(quantity);
   }
-  $("#"+idName).text(quantity);
+  }
+  
+
+function subtractNumber(idName,productId,status,priceId, quantityId, unitPriceId){
+  let quantity=parseInt($("#"+idName).text());
+  if(status==1){
+    if(quantity!=1){
+      $.ajax({
+        url:"http://localhost:8000/sub-cart-qty/"+productId,
+        success:function(){
+          quantity--;
+          $("#"+idName).text(quantity);
+          computePrice(priceId, quantityId, unitPriceId);
+        }
+      })
+    }
+    else{
+      quantity=1;
+      $("#"+idName).text(quantity);
+    }
+  }
+  else{
+    if(quantity!=1){
+      quantity--;
+      $("#"+idName).text(quantity);
+    }
+    else{
+      quantity=1;
+      $("#"+idName).text(quantity);
+    }
+  }
 }
 
 function computePrice(priceId, quantityId, unitPriceId){

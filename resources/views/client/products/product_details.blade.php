@@ -57,12 +57,12 @@
                           <ion-icon name="remove-outline"></ion-icon>
                         </button>
                         <span class="span quantity-cart" data-qty id="quantity">1</span>
-                        <button class="counter-btn" data-qty-plus onclick="addNumber('quantity')">
+                        <button class="counter-btn" data-qty-plus onclick="addNumber('quantity', '{{$searchResult->id}}')">
                           <ion-icon name="add-outline"></ion-icon>
                         </button>
                       </div>
                       <!-- function button to cart -->
-                      <button class="add-to-cart-btn" onclick="addToCart()">
+                      <button class="add-to-cart-btn" onclick="addToCart('{{$searchResult->id}}')">
                         <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
                         <span class="span">Add to cart</span>
                       </button>
@@ -75,14 +75,13 @@
       <script type="text/javascript">
         $(document).ready(function(){
           displayPhoneModels();
-          addtoCart();
+          viewCartCounterQuantity();
           $('select[name="phone-device"]').on('change',function(){
             displayPhoneModels();
           })
         })
-        function addToCart (){
-          let productId = $('#productId').val();
-          let quantity = $("#quantity").text();
+        function addToCart (productId){
+          let quantity = parseInt($("#quantity").text());
           $.ajax({
             url:"{{url('/add-to-cart')}}/"+ productId+ "/" + quantity,
             success: function(totalCartCount){
