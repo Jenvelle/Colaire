@@ -55,6 +55,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/cart-checkout', 'cartCheckout')
         ->name('cart.checkout');
 
+        Route::post('/receipt', 'createTransaction')
+        ->name('receipt');
+
     });
 });
 Route::controller(ClientController::class)->group(function (){

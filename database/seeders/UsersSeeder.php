@@ -19,6 +19,8 @@ class UsersSeeder extends Seeder
             'firstName'=>'admin',
             'lastName'=>'administrator',
             'email'=>'admin@admin.com',
+            'address'=>'Admin Street, Admin Subdivision, Brgy.Admin, Admin City',
+            'contactNumber'=>'9954133489',
             'password'=>Hash::make('admin123'),
 
         ],
@@ -26,6 +28,8 @@ class UsersSeeder extends Seeder
             'firstName'=>'user',
             'lastName'=>'User',
             'email'=>'user@user.com',
+            'address'=>'User Street, User Subdivision, Brgy.User, User City',
+            'contactNumber'=>'9954133489',
             'password'=>Hash::make('user123'),
 
         ],

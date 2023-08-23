@@ -9,64 +9,43 @@
                 <span class="badge bg-primary rounded-pill">3</span>
               </h4>
               <ul class="list-group mb-3">
+              @foreach ($products as $key=>$product)
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                   <div>
-                    <h6 class="my-0">Product name</h6>
+                    <h6 class="my-0">{{$product['productName']}}</h6>
                   </div>
-                  <span class="text-body-secondary">$12</span>
+                  <span class="text-body-secondary">${{number_format($product['productTotalPrice'],2,'.',',')}}</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Second product</h6>
-                  </div>
-                  <span class="text-body-secondary">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                  <div>
-                    <h6 class="my-0">Third item</h6>
-                  </div>
-                  <span class="text-body-secondary">$5</span>
-                </li>
+                @endforeach
                 <li class="list-group-item d-flex justify-content-between">
-                  <span>Total (USD)</span>
-                  <strong>$20</strong>
+                  <span>Total:</span>
+                  <strong>${{number_format($totalCartItemPrice,2,'.',',')}}</strong>
                 </li>
               </ul>
             </div>
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">Billing Information</h4>
-              <form class="needs-validation" novalidate="">
+              <form class="needs-validation" novalidate="" action="{{route('receipt')}}" method="POST">
+                @csfr
                 <div class="row g-3">
                   <div class="col-sm-6">
-                    <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                    <div class="invalid-feedback">
-                      Valid first name is required.
-                    </div>
+                    <label for="firstName" class="form-label">First name:</label>
+                    <input type="text" class="form-control" id="firstName" value="{{$user->firstName}}" disabled>
                   </div>
       
                   <div class="col-sm-6">
                     <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                    <div class="invalid-feedback">
-                      Valid last name is required.
-                    </div>
+                    <input type="text" class="form-control" id="lastName" value="{{$user->lastName}}" disabled>
                   </div>
       
                   <div class="col-12">
-                    <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                      Please enter a valid email address for shipping updates.
-                    </div>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" value="{{$user->email}}" disabled>
                   </div>
       
                   <div class="col-12">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-                    <div class="invalid-feedback">
-                      Please enter your shipping address.
-                    </div>
+                    <input type="text" class="form-control" id="address" value="{{$user->address}}" disabled>
                   </div>
            
                 <h4 class="mb-3">Payment</h4>
@@ -78,7 +57,6 @@
                   </div>
                 </div>
                 <hr class="my-4">
-      
                 <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
               </form>
             </div>

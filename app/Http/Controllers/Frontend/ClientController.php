@@ -206,6 +206,28 @@ class ClientController extends Controller
     }
 
     public function cartCheckout(){
-        return view('client.payment_form');
+        $id=Auth::user()
+        ->id;
+        $user=User::findOrFail($id);
+        $products=[];
+        $totalCartItemPrice=0;
+        $cartItems=Redis::hgetall('cart-'.$id);
+        foreach ($cartItems as $key => $value) {
+            list($newKey, $newValue) = [$key, $value];
+           $product=Product::findOrFail($newKey);
+           $products[]=[
+            "productName"=>$product->productName,
+            "productQuantity"=>$newValue,
+            "productTotalPrice"=>$product->price * $newValue,
+           ];
+        }
+        foreach ($products as $item){
+            $totalCartItemPrice+=$item['productTotalPrice'];
+        }
+        return view('client.payment_form', compact('user','cartItems','products','totalCartItemPrice'));
+    }
+
+    public function createTransaction(){
+        return view ('client.receipt');
     }
 }

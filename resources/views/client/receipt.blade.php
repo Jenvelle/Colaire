@@ -1,3 +1,5 @@
+@extends('client.client_master')
+@section('client')
 <div class="container">
   <div class="row">
           <div class="col-lg-12">
@@ -135,3 +137,4 @@
           </div><!-- end col -->
       </div>
   </div>
+  @endsection
