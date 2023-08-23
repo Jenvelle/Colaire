@@ -26,9 +26,6 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth','App\Http\Middleware\Role:user'])->group(function () {
     Route::controller(ClientController::class)
     ->group(function(){
-        Route::get('/logout', 'clientLogout')
-        ->name('logout');
-
         Route::get('/my-profile','viewProfile')
         ->name('view.profile');
 
@@ -37,28 +34,6 @@ Route::middleware(['auth','App\Http\Middleware\Role:user'])->group(function () {
 
         Route::get('/delete-profile', 'deleteProfile')
         ->name('delete-profile');
-
-        Route::get('/add-to-cart/{id}/{qty}', 'addToCart');
-
-        Route::get('/del-cart', 'deleteCart');
-
-        Route::get('/cart', 'viewCart')
-        ->name('view.cart');
-
-        Route::get('/cart-qty','cartQuantity');
-
-        Route::get('/add-cart-qty/{productId}','addCartQuantity');
-
-        Route::get('/sub-cart-qty/{productId}', 'subtractCartQuantity');
-
-        Route::get('/del-cart-item/{productId}', 'deleteCartItem');
-
-        Route::get('/cart-checkout', 'cartCheckout')
-        ->name('cart.checkout');
-
-        Route::post('/receipt', 'createTransaction')
-        ->name('receipt');
-
     });
 });
 Route::controller(ClientController::class)->group(function (){
@@ -85,6 +60,32 @@ Route::middleware('App\Http\Middleware\Role:admin')->group(function (){
     });
 });
 
+Route::middleware(['auth','App\Http\Middleware\Role:admin','App\Http\Middleware\Role:user'])->group(function (){
+    Route::controller(ClientController::class)->group(function(){
+        Route::get('/logout', 'clientLogout')
+        ->name('logout');
 
+        Route::get('/add-to-cart/{id}/{qty}', 'addToCart');
+
+        Route::get('/del-cart', 'deleteCart');
+
+        Route::get('/cart', 'viewCart')
+        ->name('view.cart');
+
+        Route::get('/cart-qty','cartQuantity');
+
+        Route::get('/add-cart-qty/{productId}','addCartQuantity');
+
+        Route::get('/sub-cart-qty/{productId}', 'subtractCartQuantity');
+
+        Route::get('/del-cart-item/{productId}', 'deleteCartItem');
+
+        Route::get('/cart-checkout', 'cartCheckout')
+        ->name('cart.checkout');
+
+        Route::post('/receipt', 'createTransaction')
+        ->name('receipt');
+    });
+});
 require __DIR__.'/auth.php';
 

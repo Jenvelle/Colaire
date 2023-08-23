@@ -180,8 +180,8 @@ class ClientController extends Controller
     public function cartQuantity(){
         $userId=Auth::user()
         ->id;
-        $cartQuantity=Redis::hlen('cart-'.$userId);
-        return $cartQuantity;
+        $cartQty=Redis::hlen('cart-'.$userId);
+        return $cartQty;
     }
 
     public function addCartQuantity($productId){

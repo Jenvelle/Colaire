@@ -94,12 +94,4 @@
         $(document).ready(function(){
           viewCartCounterQuantity();
         })
-        function viewCartCounterQuantity(){
-          $.ajax({
-            url:"{{url('/cart-qty')}}",
-            success: function(quantity){
-              $("#cartCount").text(quantity);
-            },
-          })
-        }
       </script>
