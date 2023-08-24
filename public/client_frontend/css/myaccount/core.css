@@ -64,18 +64,6 @@ box-shadow: none;
 .btn-danger.disabled, .btn-danger:disabled {
 box-shadow: none;
 }
-.content-backdrop {
-position: fixed;
-top: 0;
-left: 0;
-z-index: 1;
-width: 100vw;
-height: 100vh;
-background-color: #435971;
-}
-.content-backdrop.fade {
-opacity: 0;
-}
 .layout-wrapper,
 .layout-container {
 width: 100%;

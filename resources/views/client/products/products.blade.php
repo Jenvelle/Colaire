@@ -4,7 +4,6 @@
                   <div class="showcase-banner">
                     <img src="{{asset($product->productPhoto)}}" alt="keqing" class="product-img default"
                       width="300">
-                    <img src="{{asset($product->productPhoto)}}" alt="keqing" class="product-img hover" width="300">
                     @if($product->tag=='sale')
                     <p class="showcase-badge angle black">sale</p>
                     @elseif($product->tag=='outOfStock')

@@ -13,7 +13,6 @@
                     <div class="showcase">
                         <div class="showcase-banner">
                             <img src="{{asset($product->productPhoto)}}" alt="seele" width="300" class="product-img default">
-                            <img src="{{asset($product->productPhoto)}}" alt="seele" width="300" class="product-img hover">
                             @if($product->tag=='sale')
                             <p class="showcase-badge angle black">sale</p>
                             @elseif($product->tag=='outOfStock')
@@ -22,9 +21,9 @@
                             <p class="showcase-badge angle pink">New</p>
                             @endif
                             <div class="showcase-actions">
-                                <button class="btn-action">
-                                    <ion-icon name="heart-outline"></ion-icon>
-                                </button>
+                                <a href="{{route('search.result', $product->id)}}" class="btn-action">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </a>
                             </div>
                         </div>
                         <div class="showcase-content">

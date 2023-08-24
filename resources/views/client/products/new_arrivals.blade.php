@@ -6,7 +6,6 @@
                   <div class="showcase-banner">
 
                     <img src="{{asset($product->productPhoto)}}" alt="seele" width="300" class="product-img default">
-                    <img src="{{asset($product->productPhoto)}}" alt="seele" width="300" class="product-img hover">
 
                     <p class="showcase-badge angle pink">new</p>
 

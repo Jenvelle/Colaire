@@ -1,6 +1,6 @@
 @extends('client.client_master')
 @section('client')
-<div class="container ">
+<div class="container">
         <main class="shadow-sm border-1 ">
           <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
