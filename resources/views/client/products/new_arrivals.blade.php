@@ -15,14 +15,6 @@
                       <a href="{{route('search.result', $product->id)}}" class="btn-action">
                         <ion-icon name="eye-outline"></ion-icon>
                       </a>
-
-                      <button class="btn-action">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <button class="btn-action">
-                        <a href="#" ionname="cart-add-outline"></ion-icon>
-                      </button>
                     </div>
                   </div>
 
