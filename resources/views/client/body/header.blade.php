@@ -73,11 +73,6 @@
             <ion-icon name="person-outline" id="user-icon"></ion-icon>
           </button>
           @endauth
-          
-          <button class="action-btn">
-            <ion-icon name="heart-outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
           <a class="action-btn" href="{{route('view.cart')}}">
             <ion-icon name="bag-handle-outline"></ion-icon>
             @auth

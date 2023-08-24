@@ -5,7 +5,7 @@
                         height="75">
                     </a>
                     <div class="showcase-content">
-                      <a href="{{route('search.result','.')}}">
+                      <a href="{{route('search.result', $product->id)}}">
                         <h4 class="showcase-title">{{$product->productName}}</h4>
                       </a>
                       <div class="showcase-rating">
