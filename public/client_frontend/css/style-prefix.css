@@ -981,12 +981,17 @@ a {
 }
 
 .banner-subtitle {
-  color: var(--salmon-pink);
+  background-color: var(--salmon-pink);
   font-size: var(--fs-7);
   font-weight: var(--weight-500);
   text-transform: capitalize;
   letter-spacing: 2px;
   margin-bottom: 10px;
+  color: #fff;
+  display: flex;
+  width: 230px;
+  height: 40px;
+
 }
 
 .banner-title {
@@ -2765,6 +2770,8 @@ footer {
    */
 
   .header-social-container {
+    padding-left: 0px;
+    margin-bottom: 0px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2774,6 +2781,8 @@ footer {
         -ms-flex-align: center;
             align-items: center;
     gap: 5px;
+    width: 50px;
+    height: 50px;
   }
 
   .header-social-container .social-link {

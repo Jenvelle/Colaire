@@ -1,7 +1,7 @@
 @extends('client.client_master')
 @section('client')
 
-<div class="container">
+<div class="shopping-container">
     <div class="shopping-cart">
       <div class="shopping-cart-header">
         <!-- <i class="fa fa-shopping-cart cart-icon"></i>

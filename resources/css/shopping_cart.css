@@ -34,7 +34,7 @@ nav {
     float: right;
 }
 
-.container {
+.shopping-container {
   margin: auto;
   width: 80%;
 }
@@ -67,9 +67,6 @@ nav {
   
 .shopping-cart-items {
     padding-top: 10px;
-}
-li {
-    margin-bottom: 18px;
 }
 
 img {

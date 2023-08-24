@@ -54,7 +54,15 @@
         <div class="container">
           <div class="slider-container has-scrollbar">
             <div class="slider-item">
-              <img src="{{asset('client_frontend/images/banner-img(2).jpg')}}" alt="women's latest fashion sale" class="banner-img">
+              <img src="{{asset('client_frontend/images/banner-img(2).jpg')}}" class="banner-img">
+              <div class="banner-content">
+                <p class="banner-subtitle">15% SALE</p>
+                <h2 class="banner-title">New offer On Day Sale</h2>
+              </div>
+            </div>
+
+            <div class="slider-item">
+              <img src="{{asset('client_frontend/images/hsr1.jpg')}}" class="banner-img">
               <div class="banner-content">
                 <p class="banner-subtitle">New Arrival</p>
                 <h2 class="banner-title">HONKAI STAR RAIL PHONE CASES</h2>
@@ -62,19 +70,10 @@
             </div>
 
             <div class="slider-item">
-              <img src="{{asset('client_frontend/images/hsr.webp')}}" alt="modern sunglasses" class="banner-img">
+              <img src="{{asset('client_frontend/images/genshiin.png')}}" class="banner-img">
               <div class="banner-content">
-                <p class="banner-subtitle">Trending accessories</p>
-                <h2 class="banner-title">Modern sunglasses</h2>
-              </div>
-            </div>
-
-            <div class="slider-item">
-              <img src="{{asset('client_frontend/images/genshin-impact-visions-keychain.jpeg')}}" alt="new fashion summer sale"
-                class="banner-img">
-              <div class="banner-content">
-                <p class="banner-subtitle">Sale Offer</p>
-                <h2 class="banner-title">New fashion summer sale</h2>
+                <p class="banner-subtitle">New Version</p>
+                <h2 class="banner-title">Genshin Impact is out now for new version.</h2>
               </div>
             </div>
           </div>
