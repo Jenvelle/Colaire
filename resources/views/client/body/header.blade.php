@@ -25,7 +25,7 @@
         <div class="header-alert-news">
           <p>
             <b>Free Shipping</b>
-            This Week Order Over - $49.99
+            This August 26 Over - $49.99
           </p>
         </div>
 
@@ -33,8 +33,6 @@
 
           <select name="language">
             <option value="en-US">English</option>
-            <option value="es-ES">Espa&ntilde;ol</option>
-            <option value="fr">Fran&ccedil;ais</option>
           </select>
         </div>
       </div>
