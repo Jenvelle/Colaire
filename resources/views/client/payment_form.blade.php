@@ -4,20 +4,20 @@
         <main class="shadow-sm border-1 ">
           <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
-              <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-              </h4>
+              </h6>
               <ul class="list-group mb-3">
               @foreach ($products as $key=>$product)
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                   <div>
-                    <h6 class="my-0">{{$product['productName']}}</h6>
+                    <h7 class="my-0">{{$product['productName']}}</h7>
                   </div>
                   <span class="text-body-secondary">${{number_format($product['productTotalPrice'],2,'.',',')}}</span>
                 </li>
                 @endforeach
                 <li class="list-group-item d-flex justify-content-between">
-                  <span>Total:</span>
+                  <strong>Total:</strong>
                   <strong>${{number_format($totalCartItemPrice,2,'.',',')}}</strong>
                 </li>
               </ul>
@@ -64,7 +64,7 @@
                   </div>
                 </div>
                 <hr class="my-4">
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                <button class="w-100 btn btn-primary mb-5" type="submit">Continue to checkout</button>
               </form>
             </div>
           </div>

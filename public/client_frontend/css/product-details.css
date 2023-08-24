@@ -128,18 +128,13 @@ ion-icon {
   height: 100%;
   display: grid;
 }
-label {
-  margin-top: 1.5em;
-  margin-bottom: .5em;
-  font-weight: bold;
-  font-size: 1.2em;
-}
 
 select {
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: .2em;
   border: 1px solid #acacac;
   color: #181820;
+  margin-right: 5px;
   
   appearance: none;
   -webkit-appearance: none;
@@ -148,7 +143,7 @@ select {
 
   background: url('https://cdn1.iconfinder.com/data/icons/arrows-vol-1-4/24/dropdown_arrow-512.png');
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 10px 10px;
   background-position: right;
   background-origin: content-box;
 }
@@ -174,7 +169,12 @@ color: var(--sandy-brown);
   border-radius: 10px;
   margin-block-end: 15px;
 }
-
+.shopping-counter-wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  width: 115px;
+}
 .counter-btn {
   color: hsl(0, 100%, 70%);
   font-size: 18px;
@@ -312,7 +312,7 @@ color: var(--sandy-brown);
 
   .product { margin-block: 75px 200px; }
 
-  .img-cover {max-width: 700px;}
+  .img-cover {max-width: 680px;}
 
   .product .container-product {
     grid-template-columns: 1fr 1fr;

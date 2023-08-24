@@ -59,6 +59,8 @@ nav {
   position: relative;
   border-radius: 3px;
   padding: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 .shopping-cart-header {
     border-bottom: 1px solid #E8E8E8;
@@ -116,7 +118,7 @@ img {
 }
 
 .button {
-  background: #6394F8;
+  background: #ff6666;
   color:white;
   text-align: center;
   padding: 12px;

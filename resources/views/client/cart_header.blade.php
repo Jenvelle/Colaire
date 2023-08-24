@@ -31,19 +31,32 @@
           $totalPrice=$product['product']->price * $product['quantity'];
           @endphp
           <span class="item-price" id="{{$uniqueDisplayItemPrice}}">${{number_format($totalPrice,2,'.',',')}}</span>
-          <div class="quantity">
+          <div class="shopping-counter-wrapper">
             <input type="hidden" value="{{$product['product']->price}}" id="{{$uniqueUnitPrice}}"/>
-            <!-- <input type="hidden" value="{{$product['product']->id}}" id="{{$key}}-cartItemId"/> -->
-            <i class="uil uil-plus"
+            <input type="hidden" value="{{$product['product']->id}}" id="{{$key}}-cartItemId"/>
+            <button class="counter-btn" data-qty-minus="" onclick="subtractNumber('quantity')"
+            onclick="subtractNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}',1,'{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
+              <ion-icon name="remove-outline" role="img" class="md hydrated" aria-label="remove outline"></ion-icon>
+            </button>
+            <span id="{{$uniqueCartQty}}">{{$product['quantity']}}</span>
+            <button class="counter-btn" data-qty-plus="" onclick="addNumber('quantity', '6')"
+            onclick="addNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}',1,'{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
+              <ion-icon name="add-outline" role="img" class="md hydrated" aria-label="add outline"></ion-icon>
+            </button>
+          </div>
+          <!-- <div class="quantity">
+            <input type="hidden" value="{{$product['product']->price}}" id="{{$uniqueUnitPrice}}"/>
+            <input type="hidden" value="{{$product['product']->id}}" id="{{$key}}-cartItemId"/>
+            <a class="uil uil-plus"
             onclick="addNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}',1,'{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
               <img src="plus.svg" alt=""/>
-            </i>
+            </a>
             <span id="{{$uniqueCartQty}}">{{$product['quantity']}}</span>
             <i class="uil uil-minus"
             onclick="subtractNumber('{{$uniqueCartQty}}','{{$productIdCartItem}}',1,'{{$uniqueDisplayItemPrice}}','{{$uniqueCartQty}}','{{$uniqueUnitPrice}}')">
               <img src="minus.svg" alt=""/>
             </i>
-          </div>
+          </div> -->
         </div>
         @endforeach
       <a href="{{route('cart.checkout')}}" class="button">Checkout</a>
