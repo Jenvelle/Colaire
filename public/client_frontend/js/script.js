@@ -215,6 +215,7 @@ function viewCartCounterQuantity(){
     url:"http://localhost:8000/cart-qty",
     success: function(quantity){
       $("#cartCount").text(quantity);
+      console.log(quantity);
     },
   })
 }

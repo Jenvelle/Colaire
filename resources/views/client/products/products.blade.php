@@ -35,7 +35,7 @@
                     <a href="#" class="showcase-category">{{$product->category}}</a>
 
                     <h3>
-                      <a href="#" class="showcase-title">{{$product->productName}}</a>
+                      <a href="{{route('search.result', $product->id)}}" class="showcase-title">{{$product->productName}}</a>
                     </h3>
 
                     <div class="showcase-rating">

@@ -42,7 +42,7 @@
 
     <div class="header-main">
       <div class="container">
-        <a href="#" class="header-logo">
+        <a href="{{route('home')}}" class="header-logo">
           <img src="{{asset('client_frontend/images/logo/colaire1.png')}}" alt="Colaire's logo" width="120" height="36">
         </a>
         <div class="header-search-container">

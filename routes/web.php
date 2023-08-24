@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth','App\Http\Middleware\Role:user'])->group(function () {
+Route::middleware('App\Http\Middleware\Role:user')->group(function () {
     Route::controller(ClientController::class)
     ->group(function(){
         Route::get('/my-profile','viewProfile')
@@ -39,6 +39,8 @@ Route::middleware(['auth','App\Http\Middleware\Role:user'])->group(function () {
 Route::controller(ClientController::class)->group(function (){
     Route::get('/','viewHomepage')
     ->name('home');
+    
+    Route::get('/cart-qty','cartQuantity');
     
     Route::post('/login', 'store');
     
@@ -60,7 +62,8 @@ Route::middleware('App\Http\Middleware\Role:admin')->group(function (){
     });
 });
 
-Route::middleware(['auth','App\Http\Middleware\Role:admin','App\Http\Middleware\Role:user'])->group(function (){
+
+Route::middleware('auth')->group(function (){
     Route::controller(ClientController::class)->group(function(){
         Route::get('/logout', 'clientLogout')
         ->name('logout');
@@ -72,7 +75,7 @@ Route::middleware(['auth','App\Http\Middleware\Role:admin','App\Http\Middleware\
         Route::get('/cart', 'viewCart')
         ->name('view.cart');
 
-        Route::get('/cart-qty','cartQuantity');
+      
 
         Route::get('/add-cart-qty/{productId}','addCartQuantity');
 
