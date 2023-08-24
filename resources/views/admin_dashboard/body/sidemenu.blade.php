@@ -10,7 +10,7 @@
       <span class="bi bi-border-all"></span>
       <span class="ml-2">Dashboard</span>
     </a>
-    <a href="{{asset('resources/views/products.blade.php')}}" class="list-group-item list-group-item-action border-0 align-items-center">
+    <a href="{{route('view.products')}}" class="list-group-item list-group-item-action border-0 align-items-center">
       <span class="bi bi-box"></span>
       <span class="ml-2">Products</span>
     </a>

@@ -13,6 +13,7 @@ class AdminController extends Controller
     public function viewAdminDashboard (){
         $products=Product::get();
         $transactions=Transaction::latest()
+        ->limit(5)
         ->get();
         
         
@@ -27,7 +28,8 @@ class AdminController extends Controller
     }
 
     public function viewAllTransactions(){
-        $transactions=Transaction::get();
+        $transactions=Transaction::latest()
+        ->get();
         return view ('admin_dashboard.transactions', compact('transactions'));
     }
 
