@@ -51,7 +51,15 @@ class ClientController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->route('home');
+        $url='';
+        if ($request->user()->role==='admin'){
+            $url='/admin-dashboard';
+        }
+        elseif ($request->user()->role==='user'){
+            $url='/';
+        }
+
+        return redirect()->intended($url);
     }
 
     public function clientLogout(Request $request): RedirectResponse
