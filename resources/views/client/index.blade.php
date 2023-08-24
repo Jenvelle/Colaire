@@ -58,7 +58,6 @@
               <div class="banner-content">
                 <p class="banner-subtitle">New Arrival</p>
                 <h2 class="banner-title">HONKAI STAR RAIL PHONE CASES</h2>
-                <a href="#" class="banner-btn">Shop now</a>
               </div>
             </div>
 
@@ -67,7 +66,6 @@
               <div class="banner-content">
                 <p class="banner-subtitle">Trending accessories</p>
                 <h2 class="banner-title">Modern sunglasses</h2>
-                <a href="#" class="banner-btn">Shop now</a>
               </div>
             </div>
 
@@ -77,7 +75,6 @@
               <div class="banner-content">
                 <p class="banner-subtitle">Sale Offer</p>
                 <h2 class="banner-title">New fashion summer sale</h2>
-                <a href="#" class="banner-btn">Shop now</a>
               </div>
             </div>
           </div>
@@ -140,7 +137,6 @@
                 <p class="discount">Get exclusive rewards and privileges</p>
                 <h2 class="cta-title">Summer collection</h2>
                 <p class="cta-text">UNDER CONSTRUCT</p>
-                <button class="cta-btn">Shop now</button>
               </a>
             </div>
           </div>
