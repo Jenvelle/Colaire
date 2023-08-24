@@ -10,14 +10,6 @@
                           <div class="mb-4">
                              <h2 class="mb-1 text-muted">Colaire</h2>
                           </div>
-                          <!-- <div class="text-muted">
-                          123 Sitio Inuman
-                          </br>
-                          Barangay Bayag Norte
-                          </br>
-                          Leon, Iloilo City
-                          </br>
-                          </div> -->
                       </div>
   
                       <hr class="my-4">
@@ -81,7 +73,6 @@
                                           <td class="text-end">${{$product['totalPrice']}}</td>
                                       </tr>
                                       @endforeach
-                                      <!-- end tr -->
                                       <!-- end tr -->
                                       <!-- <tr>
                                           <th scope="row" colspan="4" class="text-end pt-3">Sub Total</th>

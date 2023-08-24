@@ -21,7 +21,7 @@
                 <td>142</td>
                 <td>#212145214510</td>
                 <td>Jul 20, 2023</td>
-                <td>Paypal</td>
+                <td>Cash On Delivery</td>
                 <td>Pending</td>
                 <td>$175/-</td>
               </tr>
@@ -30,7 +30,7 @@
                 <td>217</td>
                 <td>#784561421721</td>
                 <td>Jul 25, 2023</td>
-                <td>Paypal</td>
+                <td>Cash On Delivery</td>
                 <td>Process</td>
                 <td>$845/-</td>
               </tr>
@@ -48,7 +48,7 @@
                 <td>671</td>
                 <td>#745384127541</td>
                 <td>Jul 30, 2023</td>
-                <td>Paypal</td>
+                <td>Cash On Delivery</td>
                 <td>Pending</td>
                 <td>$217/-</td>
               </tr>
@@ -75,7 +75,7 @@
                 <td>164</td>
                 <td>#876412242215</td>
                 <td>Aug 18, 2023</td>
-                <td>Paypal</td>
+                <td>Cash On Delivery</td>
                 <td>Delivered</td>
                 <td>$4872/-</td>
               </tr>
@@ -93,7 +93,7 @@
                 <td>354</td>
                 <td>#78412457421</td>
                 <td>Sep 09, 2023</td>
-                <td>Paypal</td>
+                <td>Cash On Delivery</td>
                 <td>Pending</td>
                 <td>$2784/-</td>
               </tr>
@@ -138,7 +138,7 @@
                 <td>671</td>
                 <td>#745384127541</td>
                 <td>Mar 27, 2023</td>
-                <td>Paypal</td>
+                <td>Cash On Delivery</td>
                 <td>Pending</td>
                 <td>$217/-</td>
               </tr>

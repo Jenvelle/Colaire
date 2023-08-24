@@ -14,19 +14,7 @@
                     @endif
                     <div class="showcase-actions">
                       <button class="btn-action">
-                        <ion-icon name="heart-outline"></ion-icon>
-                      </button>
-
-                      <button class="btn-action">
                         <ion-icon name="eye-outline"></ion-icon>
-                      </button>
-
-                      <button class="btn-action">
-                        <ion-icon name="repeat-outline"></ion-icon>
-                      </button>
-
-                      <button class="btn-action">
-                        <ion-icon name="bag-add-outline"></ion-icon>
                       </button>
                     </div>
                   </div>
