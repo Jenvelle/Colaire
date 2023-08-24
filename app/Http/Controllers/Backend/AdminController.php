@@ -11,8 +11,14 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function viewAdminDashboard (){
+        $products=Product::get();
+        $transactions=Transaction::latest()
+        ->get();
+        
+        
+        $users=User::get();
 
-        return view('admin_dashboard.admin_dashboard');
+        return view('admin_dashboard.admin_dashboard', compact('products','users','transactions'));
     }
 
     public function viewAllUserAccounts(){
