@@ -42,7 +42,7 @@
                       <!-- end row -->
                       
                       <div class="py-2">
-                          <h5 class="font-size-15">Order Summary</h5>
+                          <h5 class="font-size-10">Order Summary</h5>
   
                           <div class="table-responsive">
                               <table class="table align-middle table-nowrap table-centered mb-0">
@@ -64,7 +64,7 @@
                                           <th scope="row">{{$paddedNumber}}</th>
                                           <td>
                                               <div>
-                                                  <h5 class="text-truncate font-size-14 mb-1">{{$product['productName']}}</h5>
+                                                  <h5 class="text-truncate font-size-5 mb-1">{{$product['productName']}}</h5>
                                                   <!-- <p class="text-muted mb-0">Android, Samsung123</p> -->
                                               </div>
                                           </td>

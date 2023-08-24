@@ -4,10 +4,10 @@ body{margin-top:20px;
     background-color:#eee;
     }
     
-    .card {
+    .card-receipt{
         box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
     }
-    .card {
+    .card-receipt{
         position: relative;
         display: flex;
         flex-direction: column;
