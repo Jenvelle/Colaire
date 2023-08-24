@@ -21,7 +21,7 @@
               <span class="bi bi-box h1 mr-4"></span>
               <div class="media-body media-doller">
                 <h5 class="m-0">Products</h5>
-                <h3 class="mb-0">$ <span class="counter">6659</span><small> This Month</small>
+                <h3 class="mb-0"><span class="counter">{{count($products)}} </span><small>in Total</small>
                 </h3>
               </div>
             </a>
@@ -35,7 +35,7 @@
               <span class="bi bi-person h1 mr-4"></span>
               <div class="media-body media-doller">
                 <h5 class="m-0">Users</h5>
-                <h3 class="mb-0"><span class="counter">6659</span><small> This Month</small>
+                <h3 class="mb-0"><span class="counter">{{count($users)}} </span><small>in Total</small>
                 </h3>
               </div>
             </a>
@@ -48,8 +48,8 @@
             <a href="#" class="d-flex align-items-center">
               <span class="bi bi-receipt h1 mr-4"></span>
               <div class="media-body media-doller">
-                <h5 class="m-0">Purchases</h5>
-                <h3 class="mb-0">$ <span class="counter">6659</span><small> This Month</small>
+                <h5 class="m-0">Transactions</h5>
+                <h3 class="mb-0"><span class="counter">{{count($transactions)}} </span><small>in Total</small>
                 </h3>
               </div>
             </a>
@@ -59,50 +59,28 @@
     </section>
 
     <div class="card-header">
-      <h5>Latest Orders</h5>
+      <h5>Latest Transactions</h5>
     </div>
     <div class="card-body">
       <div class="user-status table-responsive latest-order-table">
         <table class="table table-bordernone">
           <thead>
             <tr>
-              <th scope="col">Order ID</th>
-              <th scope="col">Order Total</th>
-              <th scope="col">Payment Method</th>
+              <th scope="col">#</th>
+              <th scope="col">Transaction ID</th>
+              <th scope="col">Transaction Total</th>
               <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($transactions as $key=>$transaction)
             <tr>
-              <td>1</td>
-              <td class="digits">$120.00</td>
-              <td class="font-danger">Cash On Delivery</td>
-              <td class="digits">On Way</td>
+              <td>{{$key}}</td>
+              <td>{{$transaction->transaction_id}}</td>
+              <td class="digits">{{$transaction->totalPrice}}</td>
+              <td class="digits">{{$transaction->status}}</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td class="digits">$90.00</td>
-              <td class="font-secondary">Cash On Delivery</td>
-              <td class="digits">Delivered</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td class="digits">$240.00</td>
-              <td class="font-warning">Cash On Delivery</td>
-              <td class="digits">Delivered</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td class="digits">$120.00</td>
-              <td class="font-primary">Cash On Delivery</td>
-              <td class="digits">$6523</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td class="digits">$50.00</td>
-              <td class="font-primary">Cash On Delivery</td>
-              <td class="digits">Delivered</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
         <a href="{{asset('resources/views/order.blade.php')}}" class="btn btn-primary mt-4">View All Orders</a>
