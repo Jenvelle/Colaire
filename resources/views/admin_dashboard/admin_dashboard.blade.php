@@ -3,12 +3,7 @@
 
   
 
-  <div class="col-md-9 col-lg-10 ml-md-auto px-0 ms-md-auto">
-  <!-- top nav -->
-  <nav class="w-100 d-flex px-4 py-2 mb-4 shadow-sm">
-    <!-- close sidebar -->
-    <button type="button" class="btn btn-outline-danger">Logout</button>
-  </nav>
+  
 
   <!-- main content -->
   <!-- DASHBOARD -->
@@ -90,6 +85,6 @@
     </main>
   </div>
   </main>
-  </div>
+  
 
 @endsection

@@ -15,24 +15,16 @@
       <span class="ml-2">Products</span>
     </a>
 
-    <a href="{{asset('resources/views/users-lists.blade.php')}}" class="list-group-item list-group-item-action border-0 align-items-center">
+    <a href="{{route('view.users')}}" class="list-group-item list-group-item-action border-0 align-items-center">
       <span class="bi bi-person h5"></span>
       <span class="ml-2">Users</span>
     </a>
 
-    <button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center"
-      data-toggle="collapse" data-target="#purchase-collapse">
+    <a href="{{route('view.transactions')}}" class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center">
       <div>
         <span class="bi bi-cart-plus"></span>
-        <span class="ml-2">Purchase</span>
+        <span class="ml-2">Transactions</span>
       </div>
-      <span class="bi bi-chevron-down small"></span>
-    </button>
-    <div class="collapse" id="purchase-collapse" data-parent="#sidebar">
-      <div class="list-group">
-        <a href="{{asset('resources/views/order.blade.php')}}" class="list-group-item list-group-item-action border-0 pl-5">Orders</a>
-        <a href="{{asset('resources/views/transactions.blade.php')}}" class="list-group-item list-group-item-action border-0 pl-5">Transaction</a>
-      </div>
-    </div>
+    </a>
   </div>
   </div>

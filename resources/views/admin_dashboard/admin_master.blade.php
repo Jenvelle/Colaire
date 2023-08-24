@@ -22,7 +22,14 @@
 
 <body>
     @include('admin_dashboard.body.sidemenu')
+    <div class="col-md-9 col-lg-10 ml-md-auto px-0 ms-md-auto">
+  <!-- top nav -->
+  <nav class="w-100 d-flex px-4 py-2 mb-4 shadow-sm justify-content-end">
+    <!-- close sidebar -->
+    <a href="{{route('logout')}}" class="btn btn-outline-danger">Logout</a>
+  </nav>
     @yield('admin')
+    </div>
 </body>
 
 <script src="{{asset('admin_frontend/script.js')}}"></script>

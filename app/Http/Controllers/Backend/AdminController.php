@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function viewAllUserAccounts(){
         $users=User::get();
-        return view('admin_dashboard.users-list', compact('users'));
+        return view('admin_dashboard.users_lists', compact('users'));
     }
 
     public function viewAllTransactions(){
@@ -50,6 +50,6 @@ class AdminController extends Controller
                 Transaction::findOrFail($id)->delete();
                 break;
         }
-        return 'Success';
+        return redirect()->back();
     }
 }

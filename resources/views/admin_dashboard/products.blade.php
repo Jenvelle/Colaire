@@ -20,10 +20,24 @@
                 @foreach ($products as $key=>$product)
             <tr role="row" class="odd">
                 <td tabindex="0" class="sorting_1"><strong>{{$key+1}}</strong></td>
-                <td><img src="{{asset($product->productPhoto)}}" style="weight: 70px; height: 70px;" alt="profile-image"><span>{{$product->productName}}</span></td>
+                <td>
+                    <img src="{{asset($product->productPhoto)}}" style="weight: 70px; height: 70px;" alt="profile-image">
+                    <span>{{$product->productName}}</span>
+                </td>
                 <td>{{$product->category}}</td>
                 <td>${{$product->price}}</td>
-                <td class=" dt-body-right"><span class="badge bg-primary">{{$product->tag}}</span></td>
+                <td class=" dt-body-right">
+                    <!-- new=primary, outofstock=danger, sale=warning, none=secondary -->
+                    @if($product->tag=='new')
+                    <span class="badge bg-primary text-white">{{$product->tag}}</span>
+                    @elseif($product->tag=='outOfStock')
+                    <span class="badge bg-danger">{{$product->tag}}</span>
+                    @elseif($product->tag=='sale')
+                    <span class="badge bg-warning">{{$product->tag}}</span>
+                    @elseif($product->tag=='none')
+                    <span class="badge bg-secondary text-white">{{$product->tag}}</span>
+                    @endif
+                </td>
                 @endforeach
             </tbody>
         </div>
