@@ -15,11 +15,12 @@ class AdminController extends Controller
         $transactions=Transaction::latest()
         ->limit(5)
         ->get();
+        $totalTransactions=Transaction::get();
         
         
         $users=User::get();
 
-        return view('admin_dashboard.admin_dashboard', compact('products','users','transactions'));
+        return view('admin_dashboard.admin_dashboard', compact('products','users','transactions', 'totalTransactions'));
     }
 
     public function viewAllUserAccounts(){

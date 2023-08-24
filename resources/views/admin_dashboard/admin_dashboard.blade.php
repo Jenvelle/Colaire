@@ -44,7 +44,7 @@
               <span class="bi bi-receipt h1 mr-4"></span>
               <div class="media-body media-doller">
                 <h5 class="m-0">Transactions</h5>
-                <h3 class="mb-0"><span class="counter">{{count($transactions)}} </span><small>in Total</small>
+                <h3 class="mb-0"><span class="counter">{{count($totalTransactions)}} </span><small>in Total</small>
                 </h3>
               </div>
             </a>
