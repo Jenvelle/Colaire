@@ -2,11 +2,11 @@
 
   <!-- sidebar -->
   <div class="col-md-3 col-lg-2 px-0 position-fixed h-100 bg-white shadow-sm sidebar" id="sidebar">
-  <a href="{{route('admin.dashboard')}}" class="admin-logo">
+  <a href="{{route('home')}}" class="admin-logo">
     <img src="{{asset('client_frontend/images/logo/colaire1.png')}}" alt="Colaire's logo">
   </a>
   <div class="list-group rounded-0">
-    <a href="#" class="list-group-item list-group-item-action active border-0 d-flex align-items-center">
+    <a href="{{route('admin.dashboard')}}" class="list-group-item list-group-item-action active border-0 d-flex align-items-center">
       <span class="bi bi-border-all"></span>
       <span class="ml-2">Dashboard</span>
     </a>
