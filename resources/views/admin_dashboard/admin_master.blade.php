@@ -16,15 +16,23 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
 <body>
     @include('admin_dashboard.body.sidemenu')
+    <div class="col-md-9 col-lg-10 ml-md-auto px-0 ms-md-auto">
+  <!-- top nav -->
+  <nav class="w-100 d-flex px-4 py-2 mb-4 shadow-sm justify-content-end">
+    <!-- close sidebar -->
+    <a href="{{route('logout')}}" class="btn btn-outline-danger">Logout</a>
+  </nav>
     @yield('admin')
+    </div>
 </body>
 
 <script src="{{asset('admin_frontend/script.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 </html>

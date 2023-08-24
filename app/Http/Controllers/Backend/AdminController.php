@@ -13,6 +13,7 @@ class AdminController extends Controller
     public function viewAdminDashboard (){
         $products=Product::get();
         $transactions=Transaction::latest()
+        ->limit(5)
         ->get();
         
         
@@ -23,11 +24,12 @@ class AdminController extends Controller
 
     public function viewAllUserAccounts(){
         $users=User::get();
-        return view('admin_dashboard.users-list', compact('users'));
+        return view('admin_dashboard.users_lists', compact('users'));
     }
 
     public function viewAllTransactions(){
-        $transactions=Transaction::get();
+        $transactions=Transaction::latest()
+        ->get();
         return view ('admin_dashboard.transactions', compact('transactions'));
     }
 
@@ -48,6 +50,6 @@ class AdminController extends Controller
                 Transaction::findOrFail($id)->delete();
                 break;
         }
-        return 'Success';
+        return redirect()->back();
     }
 }

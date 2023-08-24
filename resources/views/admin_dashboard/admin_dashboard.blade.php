@@ -3,12 +3,7 @@
 
   
 
-  <div class="col-md-9 col-lg-10 ml-md-auto px-0 ms-md-auto">
-  <!-- top nav -->
-  <nav class="w-100 d-flex px-4 py-2 mb-4 shadow-sm">
-    <!-- close sidebar -->
-    <button type="button" class="btn btn-outline-danger">Logout</button>
-  </nav>
+  
 
   <!-- main content -->
   <!-- DASHBOARD -->
@@ -75,7 +70,7 @@
           <tbody>
             @foreach ($transactions as $key=>$transaction)
             <tr>
-              <td>{{$key}}</td>
+              <td>{{$key+1}}</td>
               <td>{{$transaction->transaction_id}}</td>
               <td class="digits">{{$transaction->totalPrice}}</td>
               <td class="digits">{{$transaction->status}}</td>
@@ -83,13 +78,13 @@
             @endforeach
           </tbody>
         </table>
-        <a href="{{asset('resources/views/order.blade.php')}}" class="btn btn-primary mt-4">View All Orders</a>
+        <a href="{{route('view.transactions')}}" class="btn btn-primary mt-4">View All Transactions</a>
       </div>
     </div>
     <!-- DASHBOARD END -->
     </main>
   </div>
   </main>
-  </div>
+  
 
 @endsection
