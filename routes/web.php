@@ -59,6 +59,17 @@ Route::middleware('App\Http\Middleware\Role:admin')->group(function (){
     Route::controller(AdminController::class)->group(function(){
         Route::get('/admin-dashboard', 'viewAdminDashboard')
         ->name('admin.dashboard');
+
+        Route::get('/admin-users', 'viewAllUserAccounts')
+        ->name('view.users');
+
+        Route::get('/admin-transactions', 'viewAllTransactions')
+        ->name('view.transactions');
+
+        Route::get('/admin-products','viewAllProducts')
+        ->name('view.products');
+
+        Route::get('/admin-del-entry/{table}/{id}', 'deleteTableEntry');
     });
 });
 
