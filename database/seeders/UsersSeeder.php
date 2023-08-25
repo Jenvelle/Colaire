@@ -26,7 +26,7 @@ class UsersSeeder extends Seeder
 
         ],
         [
-            'firstName'=>'user',
+            'firstName'=>'User',
             'lastName'=>'User',
             'email'=>'user@user.com',
             'role'=>'user',

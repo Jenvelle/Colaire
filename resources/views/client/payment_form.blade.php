@@ -59,7 +59,7 @@
       
                 <div class="my-3">
                   <div class="form-check">
-                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" checked>
                     <label class="form-check-label" for="debit">Cash On Delivery</label>
                   </div>
                 </div>

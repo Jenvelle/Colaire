@@ -98,7 +98,7 @@
                                       </tr> -->
                                       <tr>
                                           <th scope="row" colspan="4" class="border-0 text-end">Total:</th>
-                                          <td class="border-0 text-end"><h4 class="m-0 fw-semibold">{{$totalCartItemPrice}}</h4></td>
+                                          <td class="border-0 text-end"><h4 class="m-0 fw-semibold">${{$totalCartItemPrice}}</h4></td>
                                       </tr>
                                       <!-- end tr -->
                                   </tbody><!-- end tbody -->
