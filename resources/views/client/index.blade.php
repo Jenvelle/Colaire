@@ -97,9 +97,9 @@
                 <div class="showcase-container">
             @include('client.products.best_sellers')   
                 </div>
-</div>
-</div>
-</div>
+              </div>
+            </div>
+          </div>
         
 
 
@@ -123,23 +123,10 @@
               <h2 class="title">Products</h2>
               @include('client.products.products')
             </div>
-</div>
-
-
-      <div>
-
-        <div class="container">
-          <div class="testimonials-box">
-            <div class="cta-container">
-              <img src="{{asset('client_frontend/images/pinkcase.webp')}}" alt="summer collection" class="cta-banner">
-              <a href="#" class="cta-content">
-                <p class="discount">Get exclusive rewards and privileges</p>
-                <h2 class="cta-title">Summer collection</h2>
-                <p class="cta-text">UNDER CONSTRUCT</p>
-              </a>
-            </div>
           </div>
-        </div>
+
+
+        <div>
       </div>
     </main>
   </section>
